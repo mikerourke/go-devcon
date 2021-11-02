@@ -2,12 +2,12 @@ package devcon
 
 import "strings"
 
-type searchStatus int
+type hwidSearchStatus int
 
 const (
-	searchNone searchStatus = iota
-	searchHW
-	searchCompat
+	hwidSearchNone hwidSearchStatus = iota
+	hwidSearchHW
+	hwidSearchCompat
 )
 
 type HwID struct {
@@ -49,7 +49,7 @@ func parseHwIDs(lines []string) []HwID {
 			HardwareIDs:   make([]string, 0),
 			CompatibleIDs: make([]string, 0),
 		}
-		status := searchNone
+		search := hwidSearchNone
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			thisLine := lines[lineIndex]
@@ -57,7 +57,7 @@ func parseHwIDs(lines []string) []HwID {
 			if lineIndex == groupStart {
 				hwid.DeviceID = thisLine
 
-				status = searchNone
+				search = hwidSearchNone
 			} else if lineIndex == groupStart+1 {
 				nameParams := parseParams(reName, thisLine)
 
@@ -65,15 +65,15 @@ func parseHwIDs(lines []string) []HwID {
 					hwid.DeviceName = name
 				}
 			} else if strings.Contains(thisLine, "Hardware ID") {
-				status = searchHW
+				search = hwidSearchHW
 			} else if strings.Contains(thisLine, "Compatible ID") {
-				status = searchCompat
+				search = hwidSearchCompat
 			} else {
 				idLine := strings.Trim(thisLine, " ")
 
-				if status == searchHW {
+				if search == hwidSearchHW {
 					hwid.HardwareIDs = append(hwid.HardwareIDs, idLine)
-				} else if status == searchCompat {
+				} else if search == hwidSearchCompat {
 					hwid.CompatibleIDs = append(hwid.CompatibleIDs, idLine)
 				}
 			}

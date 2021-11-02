@@ -11,7 +11,7 @@ import (
 func main() {
 	dc := devcon.New("")
 
-	output, err := dc.HwIDs()
+	output, err := dc.Resources()
 	if err != nil {
 		fmt.Println(err)
 		return

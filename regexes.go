@@ -12,4 +12,6 @@ var (
 	reFieldIsValue    = regexp.MustCompile(`(?P<Field>.*) is (?P<Value>.*)`)
 	reFieldAreValue   = regexp.MustCompile(`(?P<Field>.*) are (?P<Value>.*)`)
 	reHash            = regexp.MustCompile(`#`)
+	reSetupClass      = regexp.MustCompile(`Setup Class: {(?P<GUID>.*)} (?P<Name>.*)`)
+	reResource        = regexp.MustCompile(`(?P<Name>.*)\s*: (?P<Value>.*)`)
 )
