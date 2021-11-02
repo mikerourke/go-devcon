@@ -1,0 +1,184 @@
+ACPI\ACPI0010\2&DABA3FF&0                                   : Generic Bus
+ACPI\AUTHENTICAMD_-_X86_FAMILY_6_MODEL_6\_0                 : QEMU Virtual CPU version 2.5+
+ACPI\AUTHENTICAMD_-_X86_FAMILY_6_MODEL_6\_1                 : QEMU Virtual CPU version 2.5+
+ACPI\AUTHENTICAMD_-_X86_FAMILY_6_MODEL_6\_2                 : QEMU Virtual CPU version 2.5+
+ACPI\AUTHENTICAMD_-_X86_FAMILY_6_MODEL_6\_3                 : QEMU Virtual CPU version 2.5+
+ACPI\FIXEDBUTTON\2&DABA3FF&0                                : ACPI Fixed Feature Button
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_31\_0                : Virtual CPU 
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_31\_1                : Virtual CPU 
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_31\_2                : Virtual CPU 
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_31\_3                : Virtual CPU 
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_6\_0                 : QEMU Virtual CPU version 2.5+
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_6\_1                 : QEMU Virtual CPU version 2.5+
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_6\_2                 : QEMU Virtual CPU version 2.5+
+ACPI\GENUINEINTEL_-_X86_FAMILY_6_MODEL_6\_3                 : QEMU Virtual CPU version 2.5+
+ACPI\PNP0103\0                                              : High precision event timer
+ACPI\PNP0303\4&1D401FB5&0                                   : Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+ACPI\PNP0303\4&2C5A7332&0                                   : Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+ACPI\PNP0400\1                                              : Printer Port (LPT1)
+ACPI\PNP0400\4&2C5A7332&0                                   : Printer Port (LPT1)
+ACPI\PNP0501\1                                              : Communications Port (COM1)
+ACPI\PNP0700\4&1D401FB5&0                                   : Standard floppy disk controller
+ACPI\PNP0700\4&2C5A7332&0                                   : Standard floppy disk controller
+ACPI\PNP0A03\0                                              : PCI bus
+ACPI\PNP0A03\1                                              : PCI bus
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES                          : Extended IO Bus
+ACPI\PNP0A06\GPE0_RESOURCES                                 : Extended IO Bus
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES                          : Extended IO Bus
+ACPI\PNP0B00\4&1D401FB5&0                                   : System CMOS/real time clock
+ACPI\PNP0B00\4&2C5A7332&0                                   : System CMOS/real time clock
+ACPI\PNP0F13\4&1D401FB5&0                                   : PS/2 Compatible Mouse
+ACPI\PNP0F13\4&2C5A7332&0                                   : PS/2 Compatible Mouse
+ACPI\QEMU0002\3&13C0B0C5&0                                  : Red Hat QXL GPU
+ACPI\QEMU0002\3&267A616A&0
+ACPI_HAL\PNP0C08\0                                          : Microsoft ACPI-Compliant System
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0                     : Floppy disk drive
+FDC\GENERIC_FLOPPY_DRIVE\5&9A0CDDC&0&0                      : Floppy disk drive
+HID\VID_0627&PID_0001\6&2E2010AD&0&0000                     : HID-compliant mouse
+HID\VID_0627&PID_0001\6&37F336B9&0&0000                     : HID-compliant mouse
+HTREE\ROOT\0
+IDE\CDROMQEMU_QEMU_DVD-ROM_______________________2.5+____\4D51303030302033202020202020202020202020: QEMU QEMU DVD-ROM
+IDE\DISKQEMU_HARDDISK___________________________2.5+____\4D51303030302031202020202020202020202020: QEMU HARDDISK
+ISAPNP\READDATAPORT\0                                       : ISAPNP Read Data Port
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1                  : Printer Port Logical Interface
+LPTENUM\MICROSOFTRAWPORT\5&34A37E9F&0&LPT1                  : Printer Port Logical Interface
+PCI\VEN_10EC&DEV_8139&SUBSYS_11001AF4&REV_20\3&13C0B0C5&0&18: Realtek RTL8139 Family PCI Fast Ethernet NIC
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&13C0B0C5&0&10: Video Controller (VGA Compatible)
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10: Video Controller (VGA Compatible)
+PCI\VEN_1B36&DEV_0100&SUBSYS_11001AF4&REV_04\3&13C0B0C5&0&10: Red Hat QXL GPU
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&13C0B0C5&0&18: Intel(R) PRO/1000 MT Network Connection
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18: Intel(R) PRO/1000 MT Network Connection #2
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&13C0B0C5&0&00: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&13C0B0C5&0&08: Intel 82371SB PCI to ISA bridge
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08: Intel 82371SB PCI to ISA bridge
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&13C0B0C5&0&09: Intel(R) 82371SB PCI Bus Master IDE Controller
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09: Intel(R) 82371SB PCI Bus Master IDE Controller
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&13C0B0C5&0&0A: Intel(R) 82371SB PCI to USB Universal Host Controller
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A: Intel(R) 82371SB PCI to USB Universal Host Controller
+PCIIDE\IDECHANNEL\4&3084357F&0&0                            : Primary IDE Channel
+PCIIDE\IDECHANNEL\4&3084357F&0&1                            : Secondary IDE Channel
+PCIIDE\IDECHANNEL\4&403BEF5&0&0                             : Primary IDE Channel
+PCIIDE\IDECHANNEL\4&403BEF5&0&1                             : Secondary IDE Channel
+ROOT\ACPI_HAL\0000                                          : ACPI Multiprocessor PC
+ROOT\DMIO\0000                                              : Logical Disk Manager
+ROOT\FTDISK\0000                                            : Volume Manager
+ROOT\LEGACY_AFD\0000                                        : AFD
+ROOT\LEGACY_ALG\0000                                        : Application Layer Gateway Service
+ROOT\LEGACY_APPMGMT\0000                                    : Application Management
+ROOT\LEGACY_AUDIOSRV\0000                                   : Windows Audio
+ROOT\LEGACY_BEEP\0000                                       : Beep
+ROOT\LEGACY_BROWSER\0000                                    : Computer Browser
+ROOT\LEGACY_CDFS\0000                                       : cdfs
+ROOT\LEGACY_COMSYSAPP\0000                                  : COM+ System Application
+ROOT\LEGACY_CRYPTSVC\0000                                   : Cryptographic Services
+ROOT\LEGACY_DCOMLAUNCH\0000                                 : DCOM Server Process Launcher
+ROOT\LEGACY_DHCP\0000                                       : DHCP Client
+ROOT\LEGACY_DMADMIN\0000                                    : Logical Disk Manager Administrative Service
+ROOT\LEGACY_DMBOOT\0000                                     : dmboot
+ROOT\LEGACY_DMLOAD\0000                                     : dmload
+ROOT\LEGACY_DMSERVER\0000                                   : Logical Disk Manager
+ROOT\LEGACY_DNSCACHE\0000                                   : DNS Client
+ROOT\LEGACY_ERSVC\0000                                      : Error Reporting Service
+ROOT\LEGACY_EVENTSYSTEM\0000                                : COM+ Event System
+ROOT\LEGACY_FASTFAT\0000                                    : fastfat
+ROOT\LEGACY_FASTUSERSWITCHINGCOMPATIBILITY\0000             : Fast User Switching Compatibility
+ROOT\LEGACY_FIPS\0000                                       : Fips
+ROOT\LEGACY_FLTMGR\0000                                     : FltMgr
+ROOT\LEGACY_FS_REC\0000                                     : Fs_Rec
+ROOT\LEGACY_GPC\0000                                        : Generic Packet Classifier
+ROOT\LEGACY_HELPSVC\0000                                    : Help and Support
+ROOT\LEGACY_HTTP\0000                                       : HTTP
+ROOT\LEGACY_IPNAT\0000                                      : IP Network Address Translator
+ROOT\LEGACY_IPSEC\0000                                      : IPSEC driver
+ROOT\LEGACY_KSECDD\0000                                     : ksecdd
+ROOT\LEGACY_LANMANSERVER\0000                               : Server
+ROOT\LEGACY_LANMANWORKSTATION\0000                          : Workstation
+ROOT\LEGACY_LMHOSTS\0000                                    : TCP/IP NetBIOS Helper
+ROOT\LEGACY_MNMDD\0000                                      : mnmdd
+ROOT\LEGACY_MOUNTMGR\0000                                   : mountmgr
+ROOT\LEGACY_MRXDAV\0000                                     : WebDav Client Redirector
+ROOT\LEGACY_MRXSMB\0000                                     : MRXSMB
+ROOT\LEGACY_MSDTC\0000                                      : Distributed Transaction Coordinator
+ROOT\LEGACY_MSFS\0000                                       : Msfs
+ROOT\LEGACY_MSISERVER\0000                                  : Windows Installer
+ROOT\LEGACY_MUP\0000                                        : Mup
+ROOT\LEGACY_NDIS\0000                                       : NDIS System Driver
+ROOT\LEGACY_NDISTAPI\0000                                   : Remote Access NDIS TAPI Driver
+ROOT\LEGACY_NDISUIO\0000                                    : NDIS Usermode I/O Protocol
+ROOT\LEGACY_NDPROXY\0000                                    : NDProxy
+ROOT\LEGACY_NETBIOS\0000                                    : NetBIOS Interface
+ROOT\LEGACY_NETBT\0000                                      : NetBios over Tcpip
+ROOT\LEGACY_NETMAN\0000                                     : Network Connections
+ROOT\LEGACY_NLA\0000                                        : Network Location Awareness (NLA)
+ROOT\LEGACY_NPFS\0000                                       : Npfs
+ROOT\LEGACY_NTFS\0000                                       : ntfs
+ROOT\LEGACY_NULL\0000                                       : Null
+ROOT\LEGACY_PARTMGR\0000                                    : PartMgr
+ROOT\LEGACY_PARVDM\0000                                     : ParVdm
+ROOT\LEGACY_POLICYAGENT\0000                                : IPSEC Services
+ROOT\LEGACY_PROTECTEDSTORAGE\0000                           : Protected Storage
+ROOT\LEGACY_RASACD\0000                                     : Remote Access Auto Connection Driver
+ROOT\LEGACY_RASMAN\0000                                     : Remote Access Connection Manager
+ROOT\LEGACY_RDBSS\0000                                      : Rdbss
+ROOT\LEGACY_RDPCDD\0000                                     : RDPCDD
+ROOT\LEGACY_RDPNP\0000                                      : RDPNP
+ROOT\LEGACY_REMOTEREGISTRY\0000                             : Remote Registry
+ROOT\LEGACY_RPCSS\0000                                      : Remote Procedure Call (RPC)
+ROOT\LEGACY_SAMSS\0000                                      : Security Accounts Manager
+ROOT\LEGACY_SCHEDULE\0000                                   : Task Scheduler
+ROOT\LEGACY_SECLOGON\0000                                   : Secondary Logon
+ROOT\LEGACY_SENS\0000                                       : System Event Notification
+ROOT\LEGACY_SHAREDACCESS\0000                               : Windows Firewall/Internet Connection Sharing (ICS)
+ROOT\LEGACY_SHELLHWDETECTION\0000                           : Shell Hardware Detection
+ROOT\LEGACY_SPOOLER\0000                                    : Print Spooler
+ROOT\LEGACY_SR\0000                                         : System Restore Filter Driver
+ROOT\LEGACY_SRSERVICE\0000                                  : System Restore Service
+ROOT\LEGACY_SRV\0000                                        : Srv
+ROOT\LEGACY_SSDPSRV\0000                                    : SSDP Discovery Service
+ROOT\LEGACY_STISVC\0000                                     : Windows Image Acquisition (WIA)
+ROOT\LEGACY_SYSMONLOG\0000                                  : Performance Logs and Alerts
+ROOT\LEGACY_TAPISRV\0000                                    : Telephony
+ROOT\LEGACY_TCPIP\0000                                      : TCP/IP Protocol Driver
+ROOT\LEGACY_TERMSERVICE\0000                                : Terminal Services
+ROOT\LEGACY_THEMES\0000                                     : Themes
+ROOT\LEGACY_TRKWKS\0000                                     : Distributed Link Tracking Client
+ROOT\LEGACY_VGA\0000                                        : vga
+ROOT\LEGACY_VGASAVE\0000                                    : VgaSave
+ROOT\LEGACY_VOLSNAP\0000                                    : VolSnap
+ROOT\LEGACY_W32TIME\0000                                    : Windows Time
+ROOT\LEGACY_WANARP\0000                                     : Remote Access IP ARP Driver
+ROOT\LEGACY_WDF01000\0000                                   : Kernel Mode Driver Frameworks service
+ROOT\LEGACY_WEBCLIENT\0000                                  : WebClient
+ROOT\LEGACY_WINMGMT\0000                                    : Windows Management Instrumentation
+ROOT\LEGACY_WSCSVC\0000                                     : Security Center
+ROOT\LEGACY_WUAUSERV\0000                                   : Automatic Updates
+ROOT\LEGACY_WZCSVC\0000                                     : Wireless Zero Configuration
+ROOT\MEDIA\MS_MMACM                                         : Audio Codecs
+ROOT\MEDIA\MS_MMDRV                                         : Legacy Audio Drivers
+ROOT\MEDIA\MS_MMMCI                                         : Media Control Devices
+ROOT\MEDIA\MS_MMVCD                                         : Legacy Video Capture Devices
+ROOT\MEDIA\MS_MMVID                                         : Video Codecs
+ROOT\MS_L2TPMINIPORT\0000                                   : WAN Miniport (L2TP)
+ROOT\MS_NDISWANIP\0000                                      : WAN Miniport (IP)
+ROOT\MS_PPPOEMINIPORT\0000                                  : WAN Miniport (PPPOE)
+ROOT\MS_PPTPMINIPORT\0000                                   : WAN Miniport (PPTP)
+ROOT\MS_PSCHEDMP\0000                                       : Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0001                                       : WAN Miniport (IP) - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0002                                       : Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0003                                       : Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+ROOT\MS_PTIMINIPORT\0000                                    : Direct Parallel
+ROOT\RDPDR\0000                                             : Terminal Server Device Redirector
+ROOT\RDP_KBD\0000                                           : Terminal Server Keyboard Driver
+ROOT\RDP_MOU\0000                                           : Terminal Server Mouse Driver
+ROOT\SYSTEM\0000                                            : Plug and Play Software Device Enumerator
+ROOT\SYSTEM\0001                                            : Microcode Update Device
+ROOT\SYSTEM\0002                                            : Microsoft System Management BIOS Driver
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400: Generic volume
+SW\{EEAB7790-C514-11D1-B42B-00805FC1270E}\ASYNCMAC          : RAS Async Adapter
+USB\ROOT_HUB\4&192D568&0                                    : USB Root Hub
+USB\ROOT_HUB\4&2E134BF2&0                                   : USB Root Hub
+USB\VID_0403&PID_6001\AB0K0SRH                              : USB Serial Converter
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1                  : USB Human Interface Device
+USB\VID_0627&PID_0001\42                                    : USB Human Interface Device
+185 matching device(s) found.

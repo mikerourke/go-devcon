@@ -1,0 +1,294 @@
+ACPI\ACPI0010\2&DABA3FF&0
+    Name: Generic Bus
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_X_PNP]. No files used by driver.
+ACPI\FIXEDBUTTON\2&DABA3FF&0
+    Name: ACPI Fixed Feature Button
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV]. No files used by driver.
+ACPI\PNP0103\0
+    Name: High precision event timer
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_HPET]. No files used by driver.
+ACPI\PNP0303\4&1D401FB5&0
+    Name: Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+    Driver installed from c:\windows\inf\keyboard.inf [STANDARD_Inst]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\i8042prt.sys
+        C:\WINDOWS\system32\DRIVERS\kbdclass.sys
+ACPI\PNP0400\1
+    Name: Printer Port (LPT1)
+    Driver installed from c:\windows\inf\msports.inf [LptPort]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\parport.sys
+ACPI\PNP0501\1
+    Name: Communications Port (COM1)
+    Driver installed from c:\windows\inf\msports.inf [ComPort]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\serial.sys
+        C:\WINDOWS\system32\DRIVERS\serenum.sys
+ACPI\PNP0700\4&1D401FB5&0
+    Name: Standard floppy disk controller
+    Driver installed from c:\windows\inf\fdc.inf [fdc_install]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\fdc.sys
+ACPI\PNP0A03\0
+    Name: PCI bus
+    Driver installed from c:\windows\inf\machine.inf [PCI_DRV_ROOT]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\pci.sys
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_X_PNP]. No files used by driver.
+ACPI\PNP0A06\GPE0_RESOURCES
+    Name: Extended IO Bus
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_X_PNP]. No files used by driver.
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_X_PNP]. No files used by driver.
+ACPI\PNP0B00\4&1D401FB5&0
+    Name: System CMOS/real time clock
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV_X]. No files used by driver.
+ACPI\PNP0F13\4&1D401FB5&0
+    Name: PS/2 Compatible Mouse
+    Driver installed from c:\windows\inf\msmouse.inf [PS2_Inst]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\i8042prt.sys
+        C:\WINDOWS\system32\DRIVERS\mouclass.sys
+ACPI_HAL\PNP0C08\0
+    Name: Microsoft ACPI-Compliant System
+    Driver installed from c:\windows\inf\acpi.inf [ACPI_Inst]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\acpi.sys
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0
+    Name: Floppy disk drive
+    Driver installed from c:\windows\inf\flpydisk.inf [floppy_install]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\flpydisk.sys
+HID\VID_0627&PID_0001\6&37F336B9&0&0000
+    Name: HID-compliant mouse
+    Driver installed from c:\windows\inf\msmouse.inf [HID_Mouse_Inst]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\mouclass.sys
+        C:\WINDOWS\system32\DRIVERS\mouhid.sys
+ISAPNP\READDATAPORT\0
+    Name: ISAPNP Read Data Port
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV]. No files used by driver.
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1
+    Name: Printer Port Logical Interface
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV]. No files used by driver.
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10
+    Name: Video Controller (VGA Compatible)
+    No driver information available for device.
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18
+    Name: Intel(R) PRO/1000 MT Network Connection #2
+    Driver installed from c:\windows\inf\oem5.inf [E100E.ndi.NTx86.5.1]. 7 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\e1000325.sys
+        C:\WINDOWS\system32\Prounstl.exe
+        C:\WINDOWS\system32\e1000325.din
+        C:\WINDOWS\system32\NicCo.dll
+        C:\WINDOWS\system32\NicInst.dll
+        C:\WINDOWS\system32\e1000msg.dll
+        C:\WINDOWS\system32\NicEtCo.dll
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00
+    Name: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+    Driver installed from c:\windows\inf\machine.inf [NO_DRV]. No files used by driver.
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08
+    Name: Intel 82371SB PCI to ISA bridge
+    Driver installed from c:\windows\inf\machine.inf [ISAPNP_DRV]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\isapnp.sys
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09
+    Name: Intel(R) 82371SB PCI Bus Master IDE Controller
+    Driver installed from c:\windows\inf\mshdc.inf [intelide_Inst]. 3 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\intelide.sys
+        C:\WINDOWS\system32\DRIVERS\pciidex.sys
+        C:\WINDOWS\system32\DRIVERS\atapi.sys
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A
+    Name: Intel(R) 82371SB PCI to USB Universal Host Controller
+    Driver installed from c:\windows\inf\usbport.inf [UHCI.Dev]. 4 file(s) used by driver:
+        C:\WINDOWS\system32\drivers\usbuhci.sys
+        C:\WINDOWS\system32\drivers\usbport.sys
+        C:\WINDOWS\system32\usbui.dll
+        C:\WINDOWS\system32\drivers\usbhub.sys
+PCIIDE\IDECHANNEL\4&403BEF5&0&0
+    Name: Primary IDE Channel
+    Driver installed from c:\windows\inf\mshdc.inf [atapi_Inst_primary]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\atapi.sys
+        C:\WINDOWS\system32\storprop.dll
+PCIIDE\IDECHANNEL\4&403BEF5&0&1
+    Name: Secondary IDE Channel
+    Driver installed from c:\windows\inf\mshdc.inf [atapi_Inst_secondary]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\atapi.sys
+        C:\WINDOWS\system32\storprop.dll
+ROOT\ACPI_HAL\0000
+    Name: ACPI Multiprocessor PC
+    Driver installed from c:\windows\inf\hal.inf [ACPIAPIC_MP_HAL]. 3 file(s) used by driver:
+        C:\WINDOWS\system32\hal.dll
+        C:\WINDOWS\system32\ntoskrnl.exe
+        C:\WINDOWS\system32\ntkrnlpa.exe
+ROOT\DMIO\0000
+    Name: Logical Disk Manager
+    Driver installed from c:\windows\inf\machine.inf [DMIO_DRV]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\dmutil.dll
+ROOT\FTDISK\0000
+    Name: Volume Manager
+    Driver installed from c:\windows\inf\machine.inf [FTDISK_DRV]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\ftdisk.sys
+ROOT\LEGACY_AFD\0000
+    Name: AFD
+    No driver information available for device.
+ROOT\LEGACY_BEEP\0000
+    Name: Beep
+    No driver information available for device.
+ROOT\LEGACY_DMBOOT\0000
+    Name: dmboot
+    No driver information available for device.
+ROOT\LEGACY_DMLOAD\0000
+    Name: dmload
+    No driver information available for device.
+ROOT\LEGACY_FIPS\0000
+    Name: Fips
+    No driver information available for device.
+ROOT\LEGACY_GPC\0000
+    Name: Generic Packet Classifier
+    No driver information available for device.
+ROOT\LEGACY_HTTP\0000
+    Name: HTTP
+    No driver information available for device.
+ROOT\LEGACY_IPNAT\0000
+    Name: IP Network Address Translator
+    No driver information available for device.
+ROOT\LEGACY_IPSEC\0000
+    Name: IPSEC driver
+    No driver information available for device.
+ROOT\LEGACY_KSECDD\0000
+    Name: ksecdd
+    No driver information available for device.
+ROOT\LEGACY_MNMDD\0000
+    Name: mnmdd
+    No driver information available for device.
+ROOT\LEGACY_MOUNTMGR\0000
+    Name: mountmgr
+    No driver information available for device.
+ROOT\LEGACY_NDIS\0000
+    Name: NDIS System Driver
+    No driver information available for device.
+ROOT\LEGACY_NDISTAPI\0000
+    Name: Remote Access NDIS TAPI Driver
+    No driver information available for device.
+ROOT\LEGACY_NDISUIO\0000
+    Name: NDIS Usermode I/O Protocol
+    No driver information available for device.
+ROOT\LEGACY_NDPROXY\0000
+    Name: NDProxy
+    No driver information available for device.
+ROOT\LEGACY_NETBT\0000
+    Name: NetBios over Tcpip
+    No driver information available for device.
+ROOT\LEGACY_NULL\0000
+    Name: Null
+    No driver information available for device.
+ROOT\LEGACY_PARTMGR\0000
+    Name: PartMgr
+    No driver information available for device.
+ROOT\LEGACY_PARVDM\0000
+    Name: ParVdm
+    No driver information available for device.
+ROOT\LEGACY_RASACD\0000
+    Name: Remote Access Auto Connection Driver
+    No driver information available for device.
+ROOT\LEGACY_RDPCDD\0000
+    Name: RDPCDD
+    No driver information available for device.
+ROOT\LEGACY_TCPIP\0000
+    Name: TCP/IP Protocol Driver
+    No driver information available for device.
+ROOT\LEGACY_VGASAVE\0000
+    Name: VgaSave
+    No driver information available for device.
+ROOT\LEGACY_VOLSNAP\0000
+    Name: VolSnap
+    No driver information available for device.
+ROOT\LEGACY_WANARP\0000
+    Name: Remote Access IP ARP Driver
+    No driver information available for device.
+ROOT\LEGACY_WDF01000\0000
+    Name: Kernel Mode Driver Frameworks service
+    No driver information available for device.
+ROOT\MEDIA\MS_MMACM
+    Name: Audio Codecs
+    Driver installed from c:\windows\inf\wave.inf [MS_MMACM]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\audstub.sys
+ROOT\MEDIA\MS_MMDRV
+    Name: Legacy Audio Drivers
+    Driver installed from c:\windows\inf\wave.inf [MS_MMDRV]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\audstub.sys
+ROOT\MEDIA\MS_MMMCI
+    Name: Media Control Devices
+    Driver installed from c:\windows\inf\wave.inf [MS_MMMCI]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\audstub.sys
+ROOT\MEDIA\MS_MMVCD
+    Name: Legacy Video Capture Devices
+    Driver installed from c:\windows\inf\wave.inf [MS_MMVCD]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\audstub.sys
+ROOT\MEDIA\MS_MMVID
+    Name: Video Codecs
+    Driver installed from c:\windows\inf\wave.inf [MS_MMVID]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\audstub.sys
+ROOT\MS_L2TPMINIPORT\0000
+    Name: WAN Miniport (L2TP)
+    Driver installed from c:\windows\inf\netrasa.inf [Ndi-Mp-L2tp]. No files used by driver.
+ROOT\MS_NDISWANIP\0000
+    Name: WAN Miniport (IP)
+    Driver installed from c:\windows\inf\netrasa.inf [Ndi-Mp-Ip]. No files used by driver.
+ROOT\MS_PPPOEMINIPORT\0000
+    Name: WAN Miniport (PPPOE)
+    Driver installed from c:\windows\inf\netrasa.inf [Ndi-Mp-Pppoe]. No files used by driver.
+ROOT\MS_PPTPMINIPORT\0000
+    Name: WAN Miniport (PPTP)
+    Driver installed from c:\windows\inf\netrasa.inf [Ndi-Mp-Pptp]. No files used by driver.
+ROOT\MS_PSCHEDMP\0000
+    Name: Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+    Driver installed from c:\windows\inf\netpsa.inf [PSchedMP.ndi]. No files used by driver.
+ROOT\MS_PSCHEDMP\0001
+    Name: WAN Miniport (IP) - Packet Scheduler Miniport
+    Driver installed from c:\windows\inf\netpsa.inf [PSchedMP.ndi]. No files used by driver.
+ROOT\MS_PSCHEDMP\0002
+    Name: Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+    Driver installed from c:\windows\inf\netpsa.inf [PSchedMP.ndi]. No files used by driver.
+ROOT\MS_PSCHEDMP\0003
+    Name: Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+    Driver installed from c:\windows\inf\netpsa.inf [PSchedMP.ndi]. No files used by driver.
+ROOT\MS_PTIMINIPORT\0000
+    Name: Direct Parallel
+    Driver installed from c:\windows\inf\netrasa.inf [Ndi-Mp-Pti]. No files used by driver.
+ROOT\RDPDR\0000
+    Name: Terminal Server Device Redirector
+    Driver installed from c:\windows\inf\machine.inf [RDPDR]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\rdpdr.sys
+ROOT\RDP_KBD\0000
+    Name: Terminal Server Keyboard Driver
+    Driver installed from c:\windows\inf\machine.inf [RDP_KBD]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\termdd.sys
+        C:\WINDOWS\system32\DRIVERS\kbdclass.sys
+ROOT\RDP_MOU\0000
+    Name: Terminal Server Mouse Driver
+    Driver installed from c:\windows\inf\machine.inf [RDP_MOU]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\termdd.sys
+        C:\WINDOWS\system32\DRIVERS\mouclass.sys
+ROOT\SYSTEM\0000
+    Name: Plug and Play Software Device Enumerator
+    Driver installed from c:\windows\inf\machine.inf [SWENUM]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\swenum.sys
+        C:\WINDOWS\system32\streamci.dll
+ROOT\SYSTEM\0001
+    Name: Microcode Update Device
+    Driver installed from c:\windows\inf\machine.inf [UPDATE_DRV]. No files used by driver.
+ROOT\SYSTEM\0002
+    Name: Microsoft System Management BIOS Driver
+    Driver installed from c:\windows\inf\machine.inf [MSSMBIOS_DRV]. 1 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\mssmbios.sys
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400
+    Name: Generic volume
+    Driver installed from c:\windows\inf\volume.inf [volume_install]. No files used by driver.
+USB\ROOT_HUB\4&2E134BF2&0
+    Name: USB Root Hub
+    Driver installed from c:\windows\inf\usbport.inf [ROOTHUB.Dev]. 2 file(s) used by driver:
+        C:\WINDOWS\system32\drivers\usbhub.sys
+        C:\WINDOWS\system32\drivers\usbd.sys
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1
+    Name: USB Human Interface Device
+    Driver installed from c:\windows\inf\input.inf [HID_Inst]. 4 file(s) used by driver:
+        C:\WINDOWS\system32\DRIVERS\hidusb.sys
+        C:\WINDOWS\system32\DRIVERS\hidclass.sys
+        C:\WINDOWS\system32\DRIVERS\hidparse.sys
+        C:\WINDOWS\system32\hid.dll
+84 matching device(s) found.

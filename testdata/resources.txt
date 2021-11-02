@@ -1,0 +1,283 @@
+ACPI\ACPI0010\2&DABA3FF&0
+    Name: Generic Bus
+    Device is not using any resources.
+ACPI\FIXEDBUTTON\2&DABA3FF&0
+    Name: ACPI Fixed Feature Button
+    Device is not using any resources.
+ACPI\PNP0103\0
+    Name: High precision event timer
+    Device has the following resources reserved:
+        MEM : fed00000-fed003ff
+ACPI\PNP0303\4&1D401FB5&0
+    Name: Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+    Device is currently using the following resources:
+        IO  : 0060-0060
+        IO  : 0064-0064
+        IRQ : 1
+ACPI\PNP0400\1
+    Name: Printer Port (LPT1)
+    Device is currently using the following resources:
+        IO  : 0378-037f
+ACPI\PNP0501\1
+    Name: Communications Port (COM1)
+    Device is currently using the following resources:
+        IO  : 03f8-03ff
+        IRQ : 4
+ACPI\PNP0700\4&1D401FB5&0
+    Name: Standard floppy disk controller
+    Device is currently using the following resources:
+        IO  : 03f2-03f5
+        IO  : 03f7-03f7
+        DMA : 2
+        IRQ : 6
+ACPI\PNP0A03\0
+    Name: PCI bus
+    Device is currently using the following resources:
+        MEM : 000a0000-000bffff
+        MEM : 40000000-febfffff
+        MEM : 100000000-17fffffff
+        IO  : 0000-0cf7
+        IO  : 0d00-ffff
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Device is currently using the following resources:
+        IO  : af00-af0b
+ACPI\PNP0A06\GPE0_RESOURCES
+    Name: Extended IO Bus
+    Device is currently using the following resources:
+        IO  : afe0-afe3
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Device is currently using the following resources:
+        IO  : ae00-ae17
+ACPI\PNP0B00\4&1D401FB5&0
+    Name: System CMOS/real time clock
+    Device is currently using the following resources:
+        IO  : 0070-0077
+        IRQ : 8
+ACPI\PNP0F13\4&1D401FB5&0
+    Name: PS/2 Compatible Mouse
+    Device is currently using the following resources:
+        IRQ : 12
+ACPI\QEMU0002\3&267A616A&0
+    Device has the following resources reserved:
+        IO  : 0510-051b
+ACPI_HAL\PNP0C08\0
+    Name: Microsoft ACPI-Compliant System
+    Device is currently using the following resources:
+        IRQ : 9
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0
+    Name: Floppy disk drive
+    Device is not using any resources.
+HID\VID_0627&PID_0001\6&37F336B9&0&0000
+    Name: HID-compliant mouse
+    Device is not using any resources.
+ISAPNP\READDATAPORT\0
+    Name: ISAPNP Read Data Port
+    Device is currently using the following resources:
+        IO  : 0a79-0a79
+        IO  : 0279-0279
+        IO  : 0274-0277
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1
+    Name: Printer Port Logical Interface
+    Device is not using any resources.
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10
+    Name: Video Controller (VGA Compatible)
+    Device has the following resources reserved:
+        MEM : fd000000-fdffffff
+        MEM : febf0000-febf0fff
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18
+    Name: Intel(R) PRO/1000 MT Network Connection #2
+    Device is currently using the following resources:
+        MEM : febc0000-febdffff
+        IO  : c000-c03f
+        IRQ : 10
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00
+    Name: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+    Device is not using any resources.
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08
+    Name: Intel 82371SB PCI to ISA bridge
+    Device is not using any resources.
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09
+    Name: Intel(R) 82371SB PCI Bus Master IDE Controller
+    Device is currently using the following resources:
+        IO  : c060-c06f
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A
+    Name: Intel(R) 82371SB PCI to USB Universal Host Controller
+    Device is currently using the following resources:
+        IO  : c040-c05f
+        IRQ : 11
+PCIIDE\IDECHANNEL\4&403BEF5&0&0
+    Name: Primary IDE Channel
+    Device is currently using the following resources:
+        IO  : 01f0-01f7
+        IO  : 03f6-03f6
+        IRQ : 14
+PCIIDE\IDECHANNEL\4&403BEF5&0&1
+    Name: Secondary IDE Channel
+    Device is currently using the following resources:
+        IO  : 0170-0177
+        IO  : 0376-0376
+        IRQ : 15
+ROOT\ACPI_HAL\0000
+    Name: ACPI Multiprocessor PC
+    Device is not using any resources.
+ROOT\DMIO\0000
+    Name: Logical Disk Manager
+    Device is not using any resources.
+ROOT\FTDISK\0000
+    Name: Volume Manager
+    Device is not using any resources.
+ROOT\LEGACY_AFD\0000
+    Name: AFD
+    Device is not using any resources.
+ROOT\LEGACY_BEEP\0000
+    Name: Beep
+    Device is not using any resources.
+ROOT\LEGACY_DMBOOT\0000
+    Name: dmboot
+    Device is not using any resources.
+ROOT\LEGACY_DMLOAD\0000
+    Name: dmload
+    Device is not using any resources.
+ROOT\LEGACY_FIPS\0000
+    Name: Fips
+    Device is not using any resources.
+ROOT\LEGACY_GPC\0000
+    Name: Generic Packet Classifier
+    Device is not using any resources.
+ROOT\LEGACY_HTTP\0000
+    Name: HTTP
+    Device is not using any resources.
+ROOT\LEGACY_IPNAT\0000
+    Name: IP Network Address Translator
+    Device is not using any resources.
+ROOT\LEGACY_IPSEC\0000
+    Name: IPSEC driver
+    Device is not using any resources.
+ROOT\LEGACY_KSECDD\0000
+    Name: ksecdd
+    Device is not using any resources.
+ROOT\LEGACY_MNMDD\0000
+    Name: mnmdd
+    Device is not using any resources.
+ROOT\LEGACY_MOUNTMGR\0000
+    Name: mountmgr
+    Device is not using any resources.
+ROOT\LEGACY_NDIS\0000
+    Name: NDIS System Driver
+    Device is not using any resources.
+ROOT\LEGACY_NDISTAPI\0000
+    Name: Remote Access NDIS TAPI Driver
+    Device is not using any resources.
+ROOT\LEGACY_NDISUIO\0000
+    Name: NDIS Usermode I/O Protocol
+    Device is not using any resources.
+ROOT\LEGACY_NDPROXY\0000
+    Name: NDProxy
+    Device is not using any resources.
+ROOT\LEGACY_NETBT\0000
+    Name: NetBios over Tcpip
+    Device is not using any resources.
+ROOT\LEGACY_NULL\0000
+    Name: Null
+    Device is not using any resources.
+ROOT\LEGACY_PARTMGR\0000
+    Name: PartMgr
+    Device is not using any resources.
+ROOT\LEGACY_PARVDM\0000
+    Name: ParVdm
+    Device is not using any resources.
+ROOT\LEGACY_RASACD\0000
+    Name: Remote Access Auto Connection Driver
+    Device is not using any resources.
+ROOT\LEGACY_RDPCDD\0000
+    Name: RDPCDD
+    Device is not using any resources.
+ROOT\LEGACY_TCPIP\0000
+    Name: TCP/IP Protocol Driver
+    Device is not using any resources.
+ROOT\LEGACY_VGASAVE\0000
+    Name: VgaSave
+    Device is currently using the following resources:
+        MEM : 000a0000-000bffff
+        IO  : 03b0-03bb
+        IO  : 03c0-03df
+        IO  : 01ce-01cf
+        IO  : 02e8-02ef
+ROOT\LEGACY_VOLSNAP\0000
+    Name: VolSnap
+    Device is not using any resources.
+ROOT\LEGACY_WANARP\0000
+    Name: Remote Access IP ARP Driver
+    Device is not using any resources.
+ROOT\LEGACY_WDF01000\0000
+    Name: Kernel Mode Driver Frameworks service
+    Device is not using any resources.
+ROOT\MEDIA\MS_MMACM
+    Name: Audio Codecs
+    Device is not using any resources.
+ROOT\MEDIA\MS_MMDRV
+    Name: Legacy Audio Drivers
+    Device is not using any resources.
+ROOT\MEDIA\MS_MMMCI
+    Name: Media Control Devices
+    Device is not using any resources.
+ROOT\MEDIA\MS_MMVCD
+    Name: Legacy Video Capture Devices
+    Device is not using any resources.
+ROOT\MEDIA\MS_MMVID
+    Name: Video Codecs
+    Device is not using any resources.
+ROOT\MS_L2TPMINIPORT\0000
+    Name: WAN Miniport (L2TP)
+    Device is not using any resources.
+ROOT\MS_NDISWANIP\0000
+    Name: WAN Miniport (IP)
+    Device is not using any resources.
+ROOT\MS_PPPOEMINIPORT\0000
+    Name: WAN Miniport (PPPOE)
+    Device is not using any resources.
+ROOT\MS_PPTPMINIPORT\0000
+    Name: WAN Miniport (PPTP)
+    Device is not using any resources.
+ROOT\MS_PSCHEDMP\0000
+    Name: Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+    Device is not using any resources.
+ROOT\MS_PSCHEDMP\0001
+    Name: WAN Miniport (IP) - Packet Scheduler Miniport
+    Device is not using any resources.
+ROOT\MS_PSCHEDMP\0002
+    Name: Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+    Device is not using any resources.
+ROOT\MS_PSCHEDMP\0003
+    Name: Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+    Device is not using any resources.
+ROOT\MS_PTIMINIPORT\0000
+    Name: Direct Parallel
+    Device is not using any resources.
+ROOT\RDPDR\0000
+    Name: Terminal Server Device Redirector
+    Device is not using any resources.
+ROOT\RDP_KBD\0000
+    Name: Terminal Server Keyboard Driver
+    Device is not using any resources.
+ROOT\RDP_MOU\0000
+    Name: Terminal Server Mouse Driver
+    Device is not using any resources.
+ROOT\SYSTEM\0000
+    Name: Plug and Play Software Device Enumerator
+    Device is not using any resources.
+ROOT\SYSTEM\0001
+    Name: Microcode Update Device
+    Device is not using any resources.
+ROOT\SYSTEM\0002
+    Name: Microsoft System Management BIOS Driver
+    Device is not using any resources.
+USB\ROOT_HUB\4&2E134BF2&0
+    Name: USB Root Hub
+    Device is not using any resources.
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1
+    Name: USB Human Interface Device
+    Device is not using any resources.
+84 matching device(s) found.

@@ -1,0 +1,83 @@
+ACPI\ACPI0010\2&DABA3FF&0                                   : Generic Bus
+ACPI\FIXEDBUTTON\2&DABA3FF&0                                : ACPI Fixed Feature Button
+ACPI\PNP0103\0                                              : High precision event timer
+ACPI\PNP0303\4&1D401FB5&0                                   : Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+ACPI\PNP0400\1                                              : Printer Port (LPT1)
+ACPI\PNP0501\1                                              : Communications Port (COM1)
+ACPI\PNP0700\4&1D401FB5&0                                   : Standard floppy disk controller
+ACPI\PNP0A03\0                                              : PCI bus
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES                          : Extended IO Bus
+ACPI\PNP0A06\GPE0_RESOURCES                                 : Extended IO Bus
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES                          : Extended IO Bus
+ACPI\PNP0B00\4&1D401FB5&0                                   : System CMOS/real time clock
+ACPI\PNP0F13\4&1D401FB5&0                                   : PS/2 Compatible Mouse
+ACPI\QEMU0002\3&267A616A&0
+ACPI_HAL\PNP0C08\0                                          : Microsoft ACPI-Compliant System
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0                     : Floppy disk drive
+HID\VID_0627&PID_0001\6&37F336B9&0&0000                     : HID-compliant mouse
+IDE\CDROMQEMU_QEMU_DVD-ROM_______________________2.5+____\4D51303030302033202020202020202020202020: QEMU QEMU DVD-ROM
+IDE\DISKQEMU_HARDDISK___________________________2.5+____\4D51303030302031202020202020202020202020: QEMU HARDDISK
+ISAPNP\READDATAPORT\0                                       : ISAPNP Read Data Port
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1                  : Printer Port Logical Interface
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10: Video Controller (VGA Compatible)
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18: Intel(R) PRO/1000 MT Network Connection #2
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08: Intel 82371SB PCI to ISA bridge
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09: Intel(R) 82371SB PCI Bus Master IDE Controller
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A: Intel(R) 82371SB PCI to USB Universal Host Controller
+PCIIDE\IDECHANNEL\4&403BEF5&0&0                             : Primary IDE Channel
+PCIIDE\IDECHANNEL\4&403BEF5&0&1                             : Secondary IDE Channel
+ROOT\ACPI_HAL\0000                                          : ACPI Multiprocessor PC
+ROOT\DMIO\0000                                              : Logical Disk Manager
+ROOT\FTDISK\0000                                            : Volume Manager
+ROOT\LEGACY_AFD\0000                                        : AFD
+ROOT\LEGACY_BEEP\0000                                       : Beep
+ROOT\LEGACY_DMBOOT\0000                                     : dmboot
+ROOT\LEGACY_DMLOAD\0000                                     : dmload
+ROOT\LEGACY_FIPS\0000                                       : Fips
+ROOT\LEGACY_GPC\0000                                        : Generic Packet Classifier
+ROOT\LEGACY_HTTP\0000                                       : HTTP
+ROOT\LEGACY_IPNAT\0000                                      : IP Network Address Translator
+ROOT\LEGACY_IPSEC\0000                                      : IPSEC driver
+ROOT\LEGACY_KSECDD\0000                                     : ksecdd
+ROOT\LEGACY_MNMDD\0000                                      : mnmdd
+ROOT\LEGACY_MOUNTMGR\0000                                   : mountmgr
+ROOT\LEGACY_NDIS\0000                                       : NDIS System Driver
+ROOT\LEGACY_NDISTAPI\0000                                   : Remote Access NDIS TAPI Driver
+ROOT\LEGACY_NDISUIO\0000                                    : NDIS Usermode I/O Protocol
+ROOT\LEGACY_NDPROXY\0000                                    : NDProxy
+ROOT\LEGACY_NETBT\0000                                      : NetBios over Tcpip
+ROOT\LEGACY_NULL\0000                                       : Null
+ROOT\LEGACY_PARTMGR\0000                                    : PartMgr
+ROOT\LEGACY_PARVDM\0000                                     : ParVdm
+ROOT\LEGACY_RASACD\0000                                     : Remote Access Auto Connection Driver
+ROOT\LEGACY_RDPCDD\0000                                     : RDPCDD
+ROOT\LEGACY_TCPIP\0000                                      : TCP/IP Protocol Driver
+ROOT\LEGACY_VGASAVE\0000                                    : VgaSave
+ROOT\LEGACY_VOLSNAP\0000                                    : VolSnap
+ROOT\LEGACY_WANARP\0000                                     : Remote Access IP ARP Driver
+ROOT\LEGACY_WDF01000\0000                                   : Kernel Mode Driver Frameworks service
+ROOT\MEDIA\MS_MMACM                                         : Audio Codecs
+ROOT\MEDIA\MS_MMDRV                                         : Legacy Audio Drivers
+ROOT\MEDIA\MS_MMMCI                                         : Media Control Devices
+ROOT\MEDIA\MS_MMVCD                                         : Legacy Video Capture Devices
+ROOT\MEDIA\MS_MMVID                                         : Video Codecs
+ROOT\MS_L2TPMINIPORT\0000                                   : WAN Miniport (L2TP)
+ROOT\MS_NDISWANIP\0000                                      : WAN Miniport (IP)
+ROOT\MS_PPPOEMINIPORT\0000                                  : WAN Miniport (PPPOE)
+ROOT\MS_PPTPMINIPORT\0000                                   : WAN Miniport (PPTP)
+ROOT\MS_PSCHEDMP\0000                                       : Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0001                                       : WAN Miniport (IP) - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0002                                       : Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+ROOT\MS_PSCHEDMP\0003                                       : Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+ROOT\MS_PTIMINIPORT\0000                                    : Direct Parallel
+ROOT\RDPDR\0000                                             : Terminal Server Device Redirector
+ROOT\RDP_KBD\0000                                           : Terminal Server Keyboard Driver
+ROOT\RDP_MOU\0000                                           : Terminal Server Mouse Driver
+ROOT\SYSTEM\0000                                            : Plug and Play Software Device Enumerator
+ROOT\SYSTEM\0001                                            : Microcode Update Device
+ROOT\SYSTEM\0002                                            : Microsoft System Management BIOS Driver
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400: Generic volume
+USB\ROOT_HUB\4&2E134BF2&0                                   : USB Root Hub
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1                  : USB Human Interface Device
+84 matching device(s) found.

@@ -1,0 +1,427 @@
+ACPI\ACPI0010\2&DABA3FF&0
+    Name: Generic Bus
+    Hardware ID's:
+        ACPI\ACPI0010
+        *ACPI0010
+    Compatible ID's:
+        *PNP0A05
+ACPI\FIXEDBUTTON\2&DABA3FF&0
+    Name: ACPI Fixed Feature Button
+    Hardware ID's:
+        ACPI\FixedButton
+        *FixedButton
+ACPI\PNP0103\0
+    Name: High precision event timer
+    Hardware ID's:
+        ACPI\PNP0103
+        *PNP0103
+ACPI\PNP0303\4&1D401FB5&0
+    Name: Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+    Hardware ID's:
+        ACPI\PNP0303
+        *PNP0303
+ACPI\PNP0400\1
+    Name: Printer Port (LPT1)
+    Hardware ID's:
+        ACPI\PNP0400
+        *PNP0400
+ACPI\PNP0501\1
+    Name: Communications Port (COM1)
+    Hardware ID's:
+        ACPI\PNP0501
+        *PNP0501
+ACPI\PNP0700\4&1D401FB5&0
+    Name: Standard floppy disk controller
+    Hardware ID's:
+        ACPI\PNP0700
+        *PNP0700
+ACPI\PNP0A03\0
+    Name: PCI bus
+    Hardware ID's:
+        ACPI\PNP0A03
+        *PNP0A03
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Hardware ID's:
+        ACPI\PNP0A06
+        *PNP0A06
+ACPI\PNP0A06\GPE0_RESOURCES
+    Name: Extended IO Bus
+    Hardware ID's:
+        ACPI\PNP0A06
+        *PNP0A06
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Hardware ID's:
+        ACPI\PNP0A06
+        *PNP0A06
+ACPI\PNP0B00\4&1D401FB5&0
+    Name: System CMOS/real time clock
+    Hardware ID's:
+        ACPI\PNP0B00
+        *PNP0B00
+ACPI\PNP0F13\4&1D401FB5&0
+    Name: PS/2 Compatible Mouse
+    Hardware ID's:
+        ACPI\PNP0F13
+        *PNP0F13
+ACPI\QEMU0002\3&267A616A&0
+    Hardware ID's:
+        ACPI\QEMU0002
+        *QEMU0002
+ACPI_HAL\PNP0C08\0
+    Name: Microsoft ACPI-Compliant System
+    Hardware ID's:
+        ACPI_HAL\PNP0C08
+        *PNP0C08
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0
+    Name: Floppy disk drive
+    Hardware ID's:
+        FDC\GENERIC_FLOPPY_DRIVE
+    Compatible ID's:
+        GenFloppyDisk
+HID\VID_0627&PID_0001\6&37F336B9&0&0000
+    Name: HID-compliant mouse
+    Hardware ID's:
+        HID\Vid_0627&Pid_0001&Rev_0000
+        HID\Vid_0627&Pid_0001
+        HID_DEVICE_SYSTEM_MOUSE
+        HID_DEVICE_UP:0001_U:0002
+        HID_DEVICE
+IDE\CDROMQEMU_QEMU_DVD-ROM_______________________2.5+____\4D51303030302033202020202020202020202020
+    Name: QEMU QEMU DVD-ROM
+    Hardware ID's:
+        IDE\CdRomQEMU_QEMU_DVD-ROM_______________________2.5+____
+        IDE\QEMU_QEMU_DVD-ROM_______________________2.5+____
+        IDE\CdRomQEMU_QEMU_DVD-ROM_______________________
+        QEMU_QEMU_DVD-ROM_______________________2.5+____
+        GenCdRom
+    Compatible ID's:
+        GenCdRom
+IDE\DISKQEMU_HARDDISK___________________________2.5+____\4D51303030302031202020202020202020202020
+    Name: QEMU HARDDISK
+    Hardware ID's:
+        IDE\DiskQEMU_HARDDISK___________________________2.5+____
+        IDE\QEMU_HARDDISK___________________________2.5+____
+        IDE\DiskQEMU_HARDDISK___________________________
+        QEMU_HARDDISK___________________________2.5+____
+        GenDisk
+    Compatible ID's:
+        GenDisk
+ISAPNP\READDATAPORT\0
+    Name: ISAPNP Read Data Port
+    Hardware ID's:
+        ISAPNP\ReadDataPort
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1
+    Name: Printer Port Logical Interface
+    Hardware ID's:
+        LPTENUM\MicrosoftRawPort958A
+        MicrosoftRawPort958A
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10
+    Name: Video Controller (VGA Compatible)
+    Hardware ID's:
+        PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02
+        PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4
+        PCI\VEN_1234&DEV_1111&CC_030000
+        PCI\VEN_1234&DEV_1111&CC_0300
+    Compatible ID's:
+        PCI\VEN_1234&DEV_1111&REV_02
+        PCI\VEN_1234&DEV_1111
+        PCI\VEN_1234&CC_030000
+        PCI\VEN_1234&CC_0300
+        PCI\VEN_1234
+        PCI\CC_030000
+        PCI\CC_0300
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18
+    Name: Intel(R) PRO/1000 MT Network Connection #2
+    Hardware ID's:
+        PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03
+        PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4
+        PCI\VEN_8086&DEV_100E&CC_020000
+        PCI\VEN_8086&DEV_100E&CC_0200
+    Compatible ID's:
+        PCI\VEN_8086&DEV_100E&REV_03
+        PCI\VEN_8086&DEV_100E
+        PCI\VEN_8086&CC_020000
+        PCI\VEN_8086&CC_0200
+        PCI\VEN_8086
+        PCI\CC_020000
+        PCI\CC_0200
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00
+    Name: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+    Hardware ID's:
+        PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02
+        PCI\VEN_8086&DEV_1237&SUBSYS_00000000
+        PCI\VEN_8086&DEV_1237&REV_02
+        PCI\VEN_8086&DEV_1237
+        PCI\VEN_8086&DEV_1237&CC_060000
+        PCI\VEN_8086&DEV_1237&CC_0600
+    Compatible ID's:
+        PCI\VEN_8086&CC_060000
+        PCI\VEN_8086&CC_0600
+        PCI\VEN_8086
+        PCI\CC_060000
+        PCI\CC_0600
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08
+    Name: Intel 82371SB PCI to ISA bridge
+    Hardware ID's:
+        PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00
+        PCI\VEN_8086&DEV_7000&SUBSYS_00000000
+        PCI\VEN_8086&DEV_7000&REV_00
+        PCI\VEN_8086&DEV_7000
+        PCI\VEN_8086&DEV_7000&CC_060100
+        PCI\VEN_8086&DEV_7000&CC_0601
+    Compatible ID's:
+        PCI\VEN_8086&CC_060100
+        PCI\VEN_8086&CC_0601
+        PCI\VEN_8086
+        PCI\CC_060100
+        PCI\CC_0601
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09
+    Name: Intel(R) 82371SB PCI Bus Master IDE Controller
+    Hardware ID's:
+        PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00
+        PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4
+        PCI\VEN_8086&DEV_7010&CC_010180
+        PCI\VEN_8086&DEV_7010&CC_0101
+    Compatible ID's:
+        PCI\VEN_8086&DEV_7010&REV_00
+        PCI\VEN_8086&DEV_7010
+        PCI\VEN_8086&CC_010180
+        PCI\VEN_8086&CC_0101
+        PCI\VEN_8086
+        PCI\CC_010180
+        PCI\CC_0101
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A
+    Name: Intel(R) 82371SB PCI to USB Universal Host Controller
+    Hardware ID's:
+        PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01
+        PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4
+        PCI\VEN_8086&DEV_7020&CC_0C0300
+        PCI\VEN_8086&DEV_7020&CC_0C03
+    Compatible ID's:
+        PCI\VEN_8086&DEV_7020&REV_01
+        PCI\VEN_8086&DEV_7020
+        PCI\VEN_8086&CC_0C0300
+        PCI\VEN_8086&CC_0C03
+        PCI\VEN_8086
+        PCI\CC_0C0300
+        PCI\CC_0C03
+PCIIDE\IDECHANNEL\4&403BEF5&0&0
+    Name: Primary IDE Channel
+    Hardware ID's:
+        Intel-PIIX3
+        Primary_IDE_Channel
+        *PNP0600
+    Compatible ID's:
+        *PNP0600
+PCIIDE\IDECHANNEL\4&403BEF5&0&1
+    Name: Secondary IDE Channel
+    Hardware ID's:
+        Intel-PIIX3
+        Secondary_IDE_Channel
+        *PNP0600
+    Compatible ID's:
+        *PNP0600
+ROOT\ACPI_HAL\0000
+    Name: ACPI Multiprocessor PC
+    Hardware ID's:
+        acpiapic_mp
+    Compatible ID's:
+        DETECTEDInternal\ACPI_HAL
+        DETECTED\ACPI_HAL
+ROOT\DMIO\0000
+    Name: Logical Disk Manager
+    Hardware ID's:
+        ROOT\DMIO
+    Compatible ID's:
+        DETECTEDInternal\dmio
+        DETECTED\dmio
+ROOT\FTDISK\0000
+    Name: Volume Manager
+    Hardware ID's:
+        ROOT\FTDISK
+    Compatible ID's:
+        DETECTEDInternal\ftdisk
+        DETECTED\ftdisk
+ROOT\LEGACY_AFD\0000
+    Name: AFD
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_BEEP\0000
+    Name: Beep
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_DMBOOT\0000
+    Name: dmboot
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_DMLOAD\0000
+    Name: dmload
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_FIPS\0000
+    Name: Fips
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_GPC\0000
+    Name: Generic Packet Classifier
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_HTTP\0000
+    Name: HTTP
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_IPNAT\0000
+    Name: IP Network Address Translator
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_IPSEC\0000
+    Name: IPSEC driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_KSECDD\0000
+    Name: ksecdd
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_MNMDD\0000
+    Name: mnmdd
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_MOUNTMGR\0000
+    Name: mountmgr
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NDIS\0000
+    Name: NDIS System Driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NDISTAPI\0000
+    Name: Remote Access NDIS TAPI Driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NDISUIO\0000
+    Name: NDIS Usermode I/O Protocol
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NDPROXY\0000
+    Name: NDProxy
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NETBT\0000
+    Name: NetBios over Tcpip
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_NULL\0000
+    Name: Null
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_PARTMGR\0000
+    Name: PartMgr
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_PARVDM\0000
+    Name: ParVdm
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_RASACD\0000
+    Name: Remote Access Auto Connection Driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_RDPCDD\0000
+    Name: RDPCDD
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_TCPIP\0000
+    Name: TCP/IP Protocol Driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_VGASAVE\0000
+    Name: VgaSave
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_VOLSNAP\0000
+    Name: VolSnap
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_WANARP\0000
+    Name: Remote Access IP ARP Driver
+    No hardware/compatible ID's available for this device.
+ROOT\LEGACY_WDF01000\0000
+    Name: Kernel Mode Driver Frameworks service
+    No hardware/compatible ID's available for this device.
+ROOT\MEDIA\MS_MMACM
+    Name: Audio Codecs
+    Hardware ID's:
+        MS_MMACM
+ROOT\MEDIA\MS_MMDRV
+    Name: Legacy Audio Drivers
+    Hardware ID's:
+        MS_MMDRV
+ROOT\MEDIA\MS_MMMCI
+    Name: Media Control Devices
+    Hardware ID's:
+        MS_MMMCI
+ROOT\MEDIA\MS_MMVCD
+    Name: Legacy Video Capture Devices
+    Hardware ID's:
+        MS_MMVCD
+ROOT\MEDIA\MS_MMVID
+    Name: Video Codecs
+    Hardware ID's:
+        MS_MMVID
+ROOT\MS_L2TPMINIPORT\0000
+    Name: WAN Miniport (L2TP)
+    Hardware ID's:
+        ms_l2tpminiport
+ROOT\MS_NDISWANIP\0000
+    Name: WAN Miniport (IP)
+    Hardware ID's:
+        ms_ndiswanip
+ROOT\MS_PPPOEMINIPORT\0000
+    Name: WAN Miniport (PPPOE)
+    Hardware ID's:
+        ms_pppoeminiport
+ROOT\MS_PPTPMINIPORT\0000
+    Name: WAN Miniport (PPTP)
+    Hardware ID's:
+        ms_pptpminiport
+ROOT\MS_PSCHEDMP\0000
+    Name: Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+    Hardware ID's:
+        ms_pschedmp
+ROOT\MS_PSCHEDMP\0001
+    Name: WAN Miniport (IP) - Packet Scheduler Miniport
+    Hardware ID's:
+        ms_pschedmp
+ROOT\MS_PSCHEDMP\0002
+    Name: Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+    Hardware ID's:
+        ms_pschedmp
+ROOT\MS_PSCHEDMP\0003
+    Name: Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+    Hardware ID's:
+        ms_pschedmp
+ROOT\MS_PTIMINIPORT\0000
+    Name: Direct Parallel
+    Hardware ID's:
+        ms_ptiminiport
+ROOT\RDPDR\0000
+    Name: Terminal Server Device Redirector
+    Hardware ID's:
+        ROOT\RDPDR
+ROOT\RDP_KBD\0000
+    Name: Terminal Server Keyboard Driver
+    Hardware ID's:
+        ROOT\RDP_KBD
+ROOT\RDP_MOU\0000
+    Name: Terminal Server Mouse Driver
+    Hardware ID's:
+        ROOT\RDP_MOU
+ROOT\SYSTEM\0000
+    Name: Plug and Play Software Device Enumerator
+    Hardware ID's:
+        root\swenum
+ROOT\SYSTEM\0001
+    Name: Microcode Update Device
+    Hardware ID's:
+        root\update
+ROOT\SYSTEM\0002
+    Name: Microsoft System Management BIOS Driver
+    Hardware ID's:
+        root\mssmbios
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400
+    Name: Generic volume
+    Hardware ID's:
+        STORAGE\Volume
+USB\ROOT_HUB\4&2E134BF2&0
+    Name: USB Root Hub
+    Hardware ID's:
+        USB\ROOT_HUB&VID8086&PID7020&REV0001
+        USB\ROOT_HUB&VID8086&PID7020
+        USB\ROOT_HUB
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1
+    Name: USB Human Interface Device
+    Hardware ID's:
+        USB\Vid_0627&Pid_0001&Rev_0000
+        USB\Vid_0627&Pid_0001
+    Compatible ID's:
+        USB\Class_03&SubClass_00&Prot_00
+        USB\Class_03&SubClass_00
+        USB\Class_03
+84 matching device(s) found.

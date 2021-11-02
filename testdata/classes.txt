@@ -1,0 +1,51 @@
+Listing 50 setup class(es).
+WCEUSBS             : Windows CE USB Devices
+USB                 : Universal Serial Bus controllers
+PnpPrinters         : IEEE 1394 and SCSI printers
+Dot4                : IEEE 1284.4 devices
+Dot4Print           : IEEE 1284.4 compatible printers
+CDROM               : DVD/CD-ROM drives
+Computer            : Computer
+DiskDrive           : Disk drives
+Display             : Display adapters
+fdc                 : Floppy disk controllers
+hdc                 : IDE ATA/ATAPI controllers
+Keyboard            : Keyboards
+MEDIA               : Sound, video and game controllers
+Modem               : Modems
+Monitor             : Monitors
+Mouse               : Mice and other pointing devices
+MTD                 : PCMCIA and Flash memory devices
+MultiFunction       : Multifunction adapters
+Net                 : Network adapters
+NetClient           : Network Client
+NetService          : Network Service
+NetTrans            : Network Protocol
+PCMCIA              : PCMCIA adapters
+Ports               : Ports (COM & LPT)
+Printer             : Printers
+SCSIAdapter         : SCSI and RAID controllers
+System              : System devices
+Unknown             : Other devices
+FloppyDisk          : Floppy disk drives
+Processor           : Processors
+MultiPortSerial     : Multi-port serial adapters
+SmartCardReader     : Smart card readers
+VolumeSnapshot      : Storage volume shadow copies
+1394Debug           : 1394 Debugger Device
+1394                : IEEE 1394 Bus host controllers
+Infrared            : Infrared devices
+Image               : Imaging devices
+TapeDrive           : Tape drives
+Volume              : Storage volumes
+Battery             : Batteries
+HIDClass            : Human Interface Devices
+61883               : 61883 Device Class
+LegacyDriver        : Non-Plug and Play Drivers
+SDHost              : Secure Digital host controllers
+Avc                 : AVC Device Class
+Enum1394            : IEEE 1394 IP Network Enumerator
+MediumChanger       : Medium Changers
+NtApm               : NT Apm/Legacy Support
+SBP2                : SBP2 IEEE 1394 Devices
+Bluetooth           : Bluetooth Radios

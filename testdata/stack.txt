@@ -1,0 +1,422 @@
+ACPI\ACPI0010\2&DABA3FF&0
+    Name: Generic Bus
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\FIXEDBUTTON\2&DABA3FF&0
+    Name: ACPI Fixed Feature Button
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0103\0
+    Name: High precision event timer
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0303\4&1D401FB5&0
+    Name: Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+    Setup Class: {4D36E96B-E325-11CE-BFC1-08002BE10318} Keyboard
+    Class upper filters:
+        kbdclass
+    Controlling service:
+        i8042prt
+ACPI\PNP0400\1
+    Name: Printer Port (LPT1)
+    Setup Class: {4D36E978-E325-11CE-BFC1-08002BE10318} Ports
+    Controlling service:
+        Parport
+ACPI\PNP0501\1
+    Name: Communications Port (COM1)
+    Setup Class: {4D36E978-E325-11CE-BFC1-08002BE10318} Ports
+    Upper filters:
+        serenum
+    Controlling service:
+        Serial
+ACPI\PNP0700\4&1D401FB5&0
+    Name: Standard floppy disk controller
+    Setup Class: {4D36E969-E325-11CE-BFC1-08002BE10318} fdc
+    Controlling service:
+        fdc
+ACPI\PNP0A03\0
+    Name: PCI bus
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        pci
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0A06\GPE0_RESOURCES
+    Name: Extended IO Bus
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0B00\4&1D401FB5&0
+    Name: System CMOS/real time clock
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+ACPI\PNP0F13\4&1D401FB5&0
+    Name: PS/2 Compatible Mouse
+    Setup Class: {4D36E96F-E325-11CE-BFC1-08002BE10318} Mouse
+    Class upper filters:
+        mouclass
+    Controlling service:
+        i8042prt
+ACPI\QEMU0002\3&267A616A&0
+    Device not setup.
+    Controlling service:
+        (none)
+ACPI_HAL\PNP0C08\0
+    Name: Microsoft ACPI-Compliant System
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        ACPI
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0
+    Name: Floppy disk drive
+    Setup Class: {4D36E980-E325-11CE-BFC1-08002BE10318} FloppyDisk
+    Controlling service:
+        flpydisk
+HID\VID_0627&PID_0001\6&37F336B9&0&0000
+    Name: HID-compliant mouse
+    Setup Class: {4D36E96F-E325-11CE-BFC1-08002BE10318} Mouse
+    Class upper filters:
+        mouclass
+    Controlling service:
+        mouhid
+ISAPNP\READDATAPORT\0
+    Name: ISAPNP Read Data Port
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1
+    Name: Printer Port Logical Interface
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10
+    Name: Video Controller (VGA Compatible)
+    Device not setup.
+    Controlling service:
+        (none)
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18
+    Name: Intel(R) PRO/1000 MT Network Connection #2
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        E1000
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00
+    Name: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        (none)
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08
+    Name: Intel 82371SB PCI to ISA bridge
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        isapnp
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09
+    Name: Intel(R) 82371SB PCI Bus Master IDE Controller
+    Setup Class: {4D36E96A-E325-11CE-BFC1-08002BE10318} hdc
+    Controlling service:
+        intelide
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A
+    Name: Intel(R) 82371SB PCI to USB Universal Host Controller
+    Setup Class: {36FC9E60-C465-11CF-8056-444553540000} USB
+    Controlling service:
+        usbuhci
+PCIIDE\IDECHANNEL\4&403BEF5&0&0
+    Name: Primary IDE Channel
+    Setup Class: {4D36E96A-E325-11CE-BFC1-08002BE10318} hdc
+    Controlling service:
+        atapi
+PCIIDE\IDECHANNEL\4&403BEF5&0&1
+    Name: Secondary IDE Channel
+    Setup Class: {4D36E96A-E325-11CE-BFC1-08002BE10318} hdc
+    Controlling service:
+        atapi
+ROOT\ACPI_HAL\0000
+    Name: ACPI Multiprocessor PC
+    Setup Class: {4D36E966-E325-11CE-BFC1-08002BE10318} Computer
+    Controlling service:
+        \Driver\ACPI_HAL
+ROOT\DMIO\0000
+    Name: Logical Disk Manager
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        dmio
+ROOT\FTDISK\0000
+    Name: Volume Manager
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        ftdisk
+ROOT\LEGACY_AFD\0000
+    Name: AFD
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        AFD
+ROOT\LEGACY_BEEP\0000
+    Name: Beep
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Beep
+ROOT\LEGACY_DMBOOT\0000
+    Name: dmboot
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        dmboot
+ROOT\LEGACY_DMLOAD\0000
+    Name: dmload
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        dmload
+ROOT\LEGACY_FIPS\0000
+    Name: Fips
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Fips
+ROOT\LEGACY_GPC\0000
+    Name: Generic Packet Classifier
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Gpc
+ROOT\LEGACY_HTTP\0000
+    Name: HTTP
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        HTTP
+ROOT\LEGACY_IPNAT\0000
+    Name: IP Network Address Translator
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        IpNat
+ROOT\LEGACY_IPSEC\0000
+    Name: IPSEC driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        IPSec
+ROOT\LEGACY_KSECDD\0000
+    Name: ksecdd
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        ksecdd
+ROOT\LEGACY_MNMDD\0000
+    Name: mnmdd
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        mnmdd
+ROOT\LEGACY_MOUNTMGR\0000
+    Name: mountmgr
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        mountmgr
+ROOT\LEGACY_NDIS\0000
+    Name: NDIS System Driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        NDIS
+ROOT\LEGACY_NDISTAPI\0000
+    Name: Remote Access NDIS TAPI Driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        NdisTapi
+ROOT\LEGACY_NDISUIO\0000
+    Name: NDIS Usermode I/O Protocol
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Ndisuio
+ROOT\LEGACY_NDPROXY\0000
+    Name: NDProxy
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        NDProxy
+ROOT\LEGACY_NETBT\0000
+    Name: NetBios over Tcpip
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        NetBT
+ROOT\LEGACY_NULL\0000
+    Name: Null
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Null
+ROOT\LEGACY_PARTMGR\0000
+    Name: PartMgr
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        PartMgr
+ROOT\LEGACY_PARVDM\0000
+    Name: ParVdm
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        ParVdm
+ROOT\LEGACY_RASACD\0000
+    Name: Remote Access Auto Connection Driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        RasAcd
+ROOT\LEGACY_RDPCDD\0000
+    Name: RDPCDD
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        RDPCDD
+ROOT\LEGACY_TCPIP\0000
+    Name: TCP/IP Protocol Driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Tcpip
+ROOT\LEGACY_VGASAVE\0000
+    Name: VgaSave
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        VgaSave
+ROOT\LEGACY_VOLSNAP\0000
+    Name: VolSnap
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        VolSnap
+ROOT\LEGACY_WANARP\0000
+    Name: Remote Access IP ARP Driver
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Wanarp
+ROOT\LEGACY_WDF01000\0000
+    Name: Kernel Mode Driver Frameworks service
+    Setup Class: {8ECC055D-047F-11D1-A537-0000F8753ED1} LegacyDriver
+    Controlling service:
+        Wdf01000
+ROOT\MEDIA\MS_MMACM
+    Name: Audio Codecs
+    Setup Class: {4D36E96C-E325-11CE-BFC1-08002BE10318} MEDIA
+    Controlling service:
+        audstub
+ROOT\MEDIA\MS_MMDRV
+    Name: Legacy Audio Drivers
+    Setup Class: {4D36E96C-E325-11CE-BFC1-08002BE10318} MEDIA
+    Controlling service:
+        audstub
+ROOT\MEDIA\MS_MMMCI
+    Name: Media Control Devices
+    Setup Class: {4D36E96C-E325-11CE-BFC1-08002BE10318} MEDIA
+    Controlling service:
+        audstub
+ROOT\MEDIA\MS_MMVCD
+    Name: Legacy Video Capture Devices
+    Setup Class: {4D36E96C-E325-11CE-BFC1-08002BE10318} MEDIA
+    Controlling service:
+        audstub
+ROOT\MEDIA\MS_MMVID
+    Name: Video Codecs
+    Setup Class: {4D36E96C-E325-11CE-BFC1-08002BE10318} MEDIA
+    Controlling service:
+        audstub
+ROOT\MS_L2TPMINIPORT\0000
+    Name: WAN Miniport (L2TP)
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        Rasl2tp
+ROOT\MS_NDISWANIP\0000
+    Name: WAN Miniport (IP)
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        NdisWan
+    Lower filters:
+        NdisTapi
+ROOT\MS_PPPOEMINIPORT\0000
+    Name: WAN Miniport (PPPOE)
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        RasPppoe
+    Lower filters:
+        NdisTapi
+ROOT\MS_PPTPMINIPORT\0000
+    Name: WAN Miniport (PPTP)
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        PptpMiniport
+    Lower filters:
+        NdisTapi
+ROOT\MS_PSCHEDMP\0000
+    Name: Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        PSched
+ROOT\MS_PSCHEDMP\0001
+    Name: WAN Miniport (IP) - Packet Scheduler Miniport
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        PSched
+ROOT\MS_PSCHEDMP\0002
+    Name: Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        PSched
+ROOT\MS_PSCHEDMP\0003
+    Name: Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        PSched
+ROOT\MS_PTIMINIPORT\0000
+    Name: Direct Parallel
+    Setup Class: {4D36E972-E325-11CE-BFC1-08002BE10318} Net
+    Controlling service:
+        Raspti
+    Lower filters:
+        PtiLink
+ROOT\RDPDR\0000
+    Name: Terminal Server Device Redirector
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        rdpdr
+ROOT\RDP_KBD\0000
+    Name: Terminal Server Keyboard Driver
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Upper filters:
+        kbdclass
+    Controlling service:
+        TermDD
+ROOT\RDP_MOU\0000
+    Name: Terminal Server Mouse Driver
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Upper filters:
+        mouclass
+    Controlling service:
+        TermDD
+ROOT\SYSTEM\0000
+    Name: Plug and Play Software Device Enumerator
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        swenum
+ROOT\SYSTEM\0001
+    Name: Microcode Update Device
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        update
+ROOT\SYSTEM\0002
+    Name: Microsoft System Management BIOS Driver
+    Setup Class: {4D36E97D-E325-11CE-BFC1-08002BE10318} System
+    Controlling service:
+        mssmbios
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400
+    Name: Generic volume
+    Setup Class: {71A27CDD-812A-11D0-BEC7-08002BE2092F} Volume
+    Class upper filters:
+        VolSnap
+    Controlling service:
+        (none)
+USB\ROOT_HUB\4&2E134BF2&0
+    Name: USB Root Hub
+    Setup Class: {36FC9E60-C465-11CF-8056-444553540000} USB
+    Controlling service:
+        usbhub
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1
+    Name: USB Human Interface Device
+    Setup Class: {745A17A0-74D3-11D0-B6FE-00A0C90F57DA} HIDClass
+    Controlling service:
+        HidUsb
+84 matching device(s) found.

@@ -1,0 +1,1049 @@
+ACPI\ACPI0010\2&DABA3FF&0
+    Name: Generic Bus
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_X_PNP
+    Driver description is Generic Bus
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 8192
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\FIXEDBUTTON\2&DABA3FF&0
+    Name: ACPI Fixed Feature Button
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV
+    Driver description is ACPI Fixed Feature Button
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0103\0
+    Name: High precision event timer
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_HPET
+    Driver description is High precision event timer
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0303\4&1D401FB5&0
+    Name: Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+DriverNode #0:
+    Inf file is c:\windows\inf\keyboard.inf
+    Inf section is STANDARD_Inst
+    Driver description is Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+    Manufacturer name is (Standard keyboards)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002240
+        Inf is digitally signed
+ACPI\PNP0400\1
+    Name: Printer Port (LPT1)
+DriverNode #0:
+    Inf file is c:\windows\inf\msports.inf
+    Inf section is LptPort
+    Driver description is Printer Port
+    Manufacturer name is (Standard port types)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 1
+    Driver node flags are 00002240
+        Inf is digitally signed
+ACPI\PNP0501\1
+    Name: Communications Port (COM1)
+DriverNode #0:
+    Inf file is c:\windows\inf\msports.inf
+    Inf section is ComPort
+    Driver description is Communications Port
+    Manufacturer name is (Standard port types)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 4097
+    Driver node flags are 0000A240
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\msports.inf
+    Inf section is ComPort
+    Driver description is Communications Port
+    Manufacturer name is (Standard port types)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 1
+    Driver node flags are 0000A240
+        Inf is digitally signed
+ACPI\PNP0700\4&1D401FB5&0
+    Name: Standard floppy disk controller
+DriverNode #0:
+    Inf file is c:\windows\inf\fdc.inf
+    Inf section is fdc_install
+    Driver description is Standard floppy disk controller
+    Manufacturer name is (Standard floppy disk controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 1
+    Driver node flags are 00002240
+        Inf is digitally signed
+ACPI\PNP0A03\0
+    Name: PCI bus
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is PCI_DRV_ROOT
+    Driver description is PCI bus
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0A06\CPU_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_X_PNP
+    Driver description is Extended IO Bus
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0A06\GPE0_RESOURCES
+    Name: Extended IO Bus
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_X_PNP
+    Driver description is Extended IO Bus
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0A06\PCI_HOTPLUG_RESOURCES
+    Name: Extended IO Bus
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_X_PNP
+    Driver description is Extended IO Bus
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0B00\4&1D401FB5&0
+    Name: System CMOS/real time clock
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV_X
+    Driver description is System CMOS/real time clock
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+ACPI\PNP0F13\4&1D401FB5&0
+    Name: PS/2 Compatible Mouse
+DriverNode #0:
+    Inf file is c:\windows\inf\msmouse.inf
+    Inf section is PS2_Inst
+    Driver description is PS/2 Compatible Mouse
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 1
+    Driver node flags are 00002240
+        Inf is digitally signed
+ACPI_HAL\PNP0C08\0
+    Name: Microsoft ACPI-Compliant System
+DriverNode #0:
+    Inf file is c:\windows\inf\acpi.inf
+    Inf section is ACPI_Inst
+    Driver description is Microsoft ACPI-Compliant System
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+FDC\GENERIC_FLOPPY_DRIVE\5&34923401&0&0
+    Name: Floppy disk drive
+DriverNode #0:
+    Inf file is c:\windows\inf\flpydisk.inf
+    Inf section is floppy_install
+    Driver description is Floppy disk drive
+    Manufacturer name is (Standard floppy disk drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 8192
+    Driver node flags are 00002240
+        Inf is digitally signed
+HID\VID_0627&PID_0001\6&37F336B9&0&0000
+    Name: HID-compliant mouse
+DriverNode #0:
+    Inf file is c:\windows\inf\msmouse.inf
+    Inf section is HID_Mouse_Inst
+    Driver description is HID-compliant mouse
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 4098
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\input.inf
+    Inf section is HID_Raw_Inst
+    Driver description is HID-compliant device
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 4100
+    Driver node flags are 00002244
+        Inf is digitally signed
+IDE\CDROMQEMU_QEMU_DVD-ROM
+    Name: QEMU QEMU DVD-ROM
+DriverNode #0:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is cdrom_install
+    Driver description is CD-ROM Drive
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is cdda_accurate_install
+    Driver description is CD-ROM Drive (force CDDA accurate)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #2:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is cdda_inaccurate_install
+    Driver description is CD-ROM Drive (force CDDA inaccurate)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #3:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_disable_install
+    Driver description is CD-ROM Drive (force IMAPI disable)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #4:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_buffer1_install
+    Driver description is CD-ROM Drive (IMAPI settings 0,1)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #5:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_buffer2_install
+    Driver description is CD-ROM Drive (IMAPI settings 0,2)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #6:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_buffer3_install
+    Driver description is CD-ROM Drive (IMAPI settings 0,3)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #7:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_buffer4_install
+    Driver description is CD-ROM Drive (IMAPI settings 0,4)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #8:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_buffer5_install
+    Driver description is CD-ROM Drive (IMAPI settings 0,5)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #9:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,0)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #10:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_buffer1_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,1)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #11:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_buffer2_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,2)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #12:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_buffer3_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,3)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #13:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_buffer4_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,4)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #14:
+    Inf file is c:\windows\inf\cdrom.inf
+    Inf section is imapi_noopc_buffer5_install
+    Driver description is CD-ROM Drive (IMAPI settings 1,5)
+    Manufacturer name is (Standard CD-ROM drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4100
+    Driver node flags are 00002240
+        Inf is digitally signed
+IDE\DISKQEMU_HARDDISK
+    Name: QEMU HARDDISK
+DriverNode #0:
+    Inf file is c:\windows\inf\disk.inf
+    Inf section is disk_install
+    Driver description is Disk drive
+    Manufacturer name is (Standard disk drives)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 4
+    Driver node flags are 00002240
+        Inf is digitally signed
+ISAPNP\READDATAPORT\0
+    Name: ISAPNP Read Data Port
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV
+    Driver description is ISAPNP Read Data Port
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+LPTENUM\MICROSOFTRAWPORT\5&1D62032D&0&LPT1
+    Name: Printer Port Logical Interface
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV
+    Driver description is Printer Port Logical Interface
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCI\VEN_1234&DEV_1111&SUBSYS_11001AF4&REV_02\3&267A616A&0&10
+    Name: Video Controller (VGA Compatible)
+    No DriverNodes found for device.
+PCI\VEN_8086&DEV_100E&SUBSYS_11001AF4&REV_03\3&267A616A&0&18
+    Name: Intel(R) PRO/1000 MT Network Connection #2
+DriverNode #0:
+    Inf file is c:\windows\inf\oem5.inf
+    Inf section is E100E.ndi.NTx86.5.1
+    Driver description is Intel(R) PRO/1000 MT Network Connection
+    Manufacturer name is Intel
+    Provider name is Intel
+    Driver date is 10/24/2006
+    Driver version is 8.7.9.0
+    Driver node rank is 8193
+    Driver node flags are 00002240
+        Inf is digitally signed
+PCI\VEN_8086&DEV_1237&SUBSYS_00000000&REV_02\3&267A616A&0&00
+    Name: Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV
+    Driver description is PCI standard host CPU bridge
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 8196
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is NO_DRV
+    Driver description is Intel 82441FX Pentium(R) Pro Processor to PCI bridge
+    Manufacturer name is Intel
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 3
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCI\VEN_8086&DEV_7000&SUBSYS_00000000&REV_00\3&267A616A&0&08
+    Name: Intel 82371SB PCI to ISA bridge
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is ISAPNP_DRV
+    Driver description is PCI standard ISA bridge
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 8196
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is ISAPNP_DRV
+    Driver description is Intel 82371SB PCI to ISA bridge
+    Manufacturer name is Intel
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 3
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCI\VEN_8086&DEV_7010&SUBSYS_11001AF4&REV_00\3&267A616A&0&09
+    Name: Intel(R) 82371SB PCI Bus Master IDE Controller
+DriverNode #0:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is pciide_Inst
+    Driver description is Standard Dual Channel PCI IDE Controller
+    Manufacturer name is (Standard IDE ATA/ATAPI controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 12294
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is intelide_Inst
+    Driver description is Intel(R) 82371SB PCI Bus Master IDE Controller
+    Manufacturer name is Intel
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 8193
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCI\VEN_8086&DEV_7020&SUBSYS_11001AF4&REV_01\3&267A616A&0&0A
+    Name: Intel(R) 82371SB PCI to USB Universal Host Controller
+DriverNode #0:
+    Inf file is c:\windows\inf\usbport.inf
+    Inf section is UHCI.Dev
+    Driver description is Standard Universal PCI to USB Host Controller
+    Manufacturer name is (Standard USB Host Controller)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 8197
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\usbport.inf
+    Inf section is UHCI.Dev
+    Driver description is Intel(R) 82371SB PCI to USB Universal Host Controller
+    Manufacturer name is Intel
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 2
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCIIDE\IDECHANNEL\4&403BEF5&0&0
+    Name: Primary IDE Channel
+DriverNode #0:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is atapi_Inst_primary
+    Driver description is Primary IDE Channel
+    Manufacturer name is (Standard IDE ATA/ATAPI controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is atapi_Inst
+    Driver description is Standard IDE/ESDI Hard Disk Controller
+    Manufacturer name is (Standard IDE ATA/ATAPI controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 2
+    Driver node flags are 00002244
+        Inf is digitally signed
+PCIIDE\IDECHANNEL\4&403BEF5&0&1
+    Name: Secondary IDE Channel
+DriverNode #0:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is atapi_Inst_secondary
+    Driver description is Secondary IDE Channel
+    Manufacturer name is (Standard IDE ATA/ATAPI controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 1
+    Driver node flags are 00002244
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\mshdc.inf
+    Inf section is atapi_Inst
+    Driver description is Standard IDE/ESDI Hard Disk Controller
+    Manufacturer name is (Standard IDE ATA/ATAPI controllers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 2
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\ACPI_HAL\0000
+    Name: ACPI Multiprocessor PC
+DriverNode #0:
+    Inf file is c:\windows\inf\hal.inf
+    Inf section is E_ISA_UP_HAL
+    Driver description is Standard PC
+    Manufacturer name is (Standard computers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 4096
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #1:
+    Inf file is c:\windows\inf\hal.inf
+    Inf section is ACPIPIC_UP_HAL
+    Driver description is Advanced Configuration and Power Interface (ACPI) PC
+    Manufacturer name is (Standard computers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 4096
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #2:
+    Inf file is c:\windows\inf\hal.inf
+    Inf section is ACPIAPIC_MP_HAL
+    Driver description is ACPI Multiprocessor PC
+    Manufacturer name is (Standard computers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+DriverNode #3:
+    Inf file is c:\windows\inf\hal.inf
+    Inf section is MPS_MP_HAL
+    Driver description is MPS Multiprocessor PC
+    Manufacturer name is (Standard computers)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 4096
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\DMIO\0000
+    Name: Logical Disk Manager
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is DMIO_DRV
+    Driver description is Logical Disk Manager
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\FTDISK\0000
+    Name: Volume Manager
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is FTDISK_DRV
+    Driver description is Volume Manager
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\LEGACY_AFD\0000
+    Name: AFD
+    No DriverNodes found for device.
+ROOT\LEGACY_BEEP\0000
+    Name: Beep
+    No DriverNodes found for device.
+ROOT\LEGACY_DMBOOT\0000
+    Name: dmboot
+    No DriverNodes found for device.
+ROOT\LEGACY_DMLOAD\0000
+    Name: dmload
+    No DriverNodes found for device.
+ROOT\LEGACY_FIPS\0000
+    Name: Fips
+    No DriverNodes found for device.
+ROOT\LEGACY_GPC\0000
+    Name: Generic Packet Classifier
+    No DriverNodes found for device.
+ROOT\LEGACY_HTTP\0000
+    Name: HTTP
+    No DriverNodes found for device.
+ROOT\LEGACY_IPNAT\0000
+    Name: IP Network Address Translator
+    No DriverNodes found for device.
+ROOT\LEGACY_IPSEC\0000
+    Name: IPSEC driver
+    No DriverNodes found for device.
+ROOT\LEGACY_KSECDD\0000
+    Name: ksecdd
+    No DriverNodes found for device.
+ROOT\LEGACY_MNMDD\0000
+    Name: mnmdd
+    No DriverNodes found for device.
+ROOT\LEGACY_MOUNTMGR\0000
+    Name: mountmgr
+    No DriverNodes found for device.
+ROOT\LEGACY_NDIS\0000
+    Name: NDIS System Driver
+    No DriverNodes found for device.
+ROOT\LEGACY_NDISTAPI\0000
+    Name: Remote Access NDIS TAPI Driver
+    No DriverNodes found for device.
+ROOT\LEGACY_NDISUIO\0000
+    Name: NDIS Usermode I/O Protocol
+    No DriverNodes found for device.
+ROOT\LEGACY_NDPROXY\0000
+    Name: NDProxy
+    No DriverNodes found for device.
+ROOT\LEGACY_NETBT\0000
+    Name: NetBios over Tcpip
+    No DriverNodes found for device.
+ROOT\LEGACY_NULL\0000
+    Name: Null
+    No DriverNodes found for device.
+ROOT\LEGACY_PARTMGR\0000
+    Name: PartMgr
+    No DriverNodes found for device.
+ROOT\LEGACY_PARVDM\0000
+    Name: ParVdm
+    No DriverNodes found for device.
+ROOT\LEGACY_RASACD\0000
+    Name: Remote Access Auto Connection Driver
+    No DriverNodes found for device.
+ROOT\LEGACY_RDPCDD\0000
+    Name: RDPCDD
+    No DriverNodes found for device.
+ROOT\LEGACY_TCPIP\0000
+    Name: TCP/IP Protocol Driver
+    No DriverNodes found for device.
+ROOT\LEGACY_VGASAVE\0000
+    Name: VgaSave
+    No DriverNodes found for device.
+ROOT\LEGACY_VOLSNAP\0000
+    Name: VolSnap
+    No DriverNodes found for device.
+ROOT\LEGACY_WANARP\0000
+    Name: Remote Access IP ARP Driver
+    No DriverNodes found for device.
+ROOT\LEGACY_WDF01000\0000
+    Name: Kernel Mode Driver Frameworks service
+    No DriverNodes found for device.
+ROOT\MEDIA\MS_MMACM
+    Name: Audio Codecs
+DriverNode #0:
+    Inf file is c:\windows\inf\wave.inf
+    Inf section is MS_MMACM
+    Driver description is Audio Codecs
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\MEDIA\MS_MMDRV
+    Name: Legacy Audio Drivers
+DriverNode #0:
+    Inf file is c:\windows\inf\wave.inf
+    Inf section is MS_MMDRV
+    Driver description is Legacy Audio Drivers
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\MEDIA\MS_MMMCI
+    Name: Media Control Devices
+DriverNode #0:
+    Inf file is c:\windows\inf\wave.inf
+    Inf section is MS_MMMCI
+    Driver description is Media Control Devices
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\MEDIA\MS_MMVCD
+    Name: Legacy Video Capture Devices
+DriverNode #0:
+    Inf file is c:\windows\inf\wave.inf
+    Inf section is MS_MMVCD
+    Driver description is Legacy Video Capture Devices
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\MEDIA\MS_MMVID
+    Name: Video Codecs
+DriverNode #0:
+    Inf file is c:\windows\inf\wave.inf
+    Inf section is MS_MMVID
+    Driver description is Video Codecs
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+ROOT\MS_L2TPMINIPORT\0000
+    Name: WAN Miniport (L2TP)
+DriverNode #0:
+    Inf file is c:\windows\inf\netrasa.inf
+    Inf section is Ndi-Mp-L2tp
+    Driver description is WAN Miniport (L2TP)
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_NDISWANIP\0000
+    Name: WAN Miniport (IP)
+DriverNode #0:
+    Inf file is c:\windows\inf\netrasa.inf
+    Inf section is Ndi-Mp-Ip
+    Driver description is WAN Miniport (IP)
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PPPOEMINIPORT\0000
+    Name: WAN Miniport (PPPOE)
+DriverNode #0:
+    Inf file is c:\windows\inf\netrasa.inf
+    Inf section is Ndi-Mp-Pppoe
+    Driver description is WAN Miniport (PPPOE)
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PPTPMINIPORT\0000
+    Name: WAN Miniport (PPTP)
+DriverNode #0:
+    Inf file is c:\windows\inf\netrasa.inf
+    Inf section is Ndi-Mp-Pptp
+    Driver description is WAN Miniport (PPTP)
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PSCHEDMP\0000
+    Name: Realtek RTL8139 Family PCI Fast Ethernet NIC - Packet Scheduler Miniport
+DriverNode #0:
+    Inf file is c:\windows\inf\netpsa.inf
+    Inf section is PSchedMP.ndi
+    Driver description is Packet Scheduler Miniport
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PSCHEDMP\0001
+    Name: WAN Miniport (IP) - Packet Scheduler Miniport
+DriverNode #0:
+    Inf file is c:\windows\inf\netpsa.inf
+    Inf section is PSchedMP.ndi
+    Driver description is Packet Scheduler Miniport
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PSCHEDMP\0002
+    Name: Intel(R) PRO/1000 MT Network Connection - Packet Scheduler Miniport
+DriverNode #0:
+    Inf file is c:\windows\inf\netpsa.inf
+    Inf section is PSchedMP.ndi
+    Driver description is Packet Scheduler Miniport
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PSCHEDMP\0003
+    Name: Intel(R) PRO/1000 MT Network Connection #2 - Packet Scheduler Miniport
+DriverNode #0:
+    Inf file is c:\windows\inf\netpsa.inf
+    Inf section is PSchedMP.ndi
+    Driver description is Packet Scheduler Miniport
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\MS_PTIMINIPORT\0000
+    Name: Direct Parallel
+DriverNode #0:
+    Inf file is c:\windows\inf\netrasa.inf
+    Inf section is Ndi-Mp-Pti
+    Driver description is Direct Parallel
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2535.0
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\RDPDR\0000
+    Name: Terminal Server Device Redirector
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is RDPDR
+    Driver description is Terminal Server Device Redirector
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\RDP_KBD\0000
+    Name: Terminal Server Keyboard Driver
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is RDP_KBD
+    Driver description is Terminal Server Keyboard Driver
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\RDP_MOU\0000
+    Name: Terminal Server Mouse Driver
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is RDP_MOU
+    Driver description is Terminal Server Mouse Driver
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\SYSTEM\0000
+    Name: Plug and Play Software Device Enumerator
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is SWENUM
+    Driver description is Plug and Play Software Device Enumerator
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\SYSTEM\0001
+    Name: Microcode Update Device
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is UPDATE_DRV
+    Driver description is Microcode Update Device
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+ROOT\SYSTEM\0002
+    Name: Microsoft System Management BIOS Driver
+DriverNode #0:
+    Inf file is c:\windows\inf\machine.inf
+    Inf section is MSSMBIOS_DRV
+    Driver description is Microsoft System Management BIOS Driver
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 0
+    Driver node flags are 00002244
+        Inf is digitally signed
+STORAGE\VOLUME\1&30A96598&0&SIGNATURE14661465OFFSET7E00LENGTH4FF196400
+    Name: Generic volume
+DriverNode #0:
+    Inf file is c:\windows\inf\volume.inf
+    Inf section is volume_install
+    Driver description is Generic volume
+    Manufacturer name is Microsoft
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.0
+    Driver node rank is 0
+    Driver node flags are 00002240
+        Inf is digitally signed
+USB\ROOT_HUB\4&2E134BF2&0
+    Name: USB Root Hub
+DriverNode #0:
+    Inf file is c:\windows\inf\usbport.inf
+    Inf section is ROOTHUB.Dev
+    Driver description is USB Root Hub
+    Manufacturer name is (Standard USB Host Controller)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 2
+    Driver node flags are 00002244
+        Inf is digitally signed
+USB\VID_0627&PID_0001\28754-0000:00:01.2-1
+    Name: USB Human Interface Device
+DriverNode #0:
+    Inf file is c:\windows\inf\input.inf
+    Inf section is HID_Inst
+    Driver description is USB Human Interface Device
+    Manufacturer name is (Standard system devices)
+    Provider name is Microsoft
+    Driver date is 7/1/2001
+    Driver version is 5.1.2600.5512
+    Driver node rank is 12802
+    Driver node flags are 00002244
+        Inf is digitally signed
+84 matching device(s) found.
