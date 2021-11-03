@@ -3,3 +3,12 @@ run:
 
 build:
 	GOOS=windows GOARCH=386 go1.10.7 build -v -o out/devcon.exe cmd/devcon/devcon.go
+
+format:
+	gofmt -w .
+
+lint:
+	golangci-lint run
+
+vet:
+	go vet .

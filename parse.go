@@ -13,9 +13,11 @@ var (
 func parseColonSeparatedLines(lines []string) [][]string {
 	values := make([][]string, 0)
 
+	const ValidPairCount = 2
+
 	for _, line := range lines {
 		valuePairs := parseColonSeparatedLine(line)
-		if len(valuePairs) == 2 {
+		if len(valuePairs) == ValidPairCount {
 			values = append(values, valuePairs)
 		}
 	}
@@ -35,11 +37,11 @@ func parseColonSeparatedLine(line string) []string {
 		return nil
 	}
 
-	name = strings.Trim(name, " ")
+	name = trimSpaces(name)
 
 	desc, ok := params["Desc"]
 	if ok {
-		desc = strings.Trim(desc, " ")
+		desc = trimSpaces(desc)
 	}
 
 	return []string{name, desc}
@@ -51,6 +53,7 @@ func parseParams(regEx *regexp.Regexp, contents string) map[string]string {
 	match := regEx.FindStringSubmatch(contents)
 
 	paramsMap := make(map[string]string)
+
 	for i, name := range regEx.SubexpNames() {
 		if i > 0 && i <= len(match) {
 			paramsMap[name] = match[i]
@@ -68,6 +71,7 @@ func splitLines(contents string) []string {
 
 	for _, line := range lines {
 		if strings.Contains(line, "\r") {
+			//nolint:gocritic // ReplaceAll not supported in Go 1.10.7.
 			validLines = append(validLines, strings.Replace(line, "\r", "", -1))
 		} else {
 			validLines = append(validLines, line)
@@ -75,4 +79,9 @@ func splitLines(contents string) []string {
 	}
 
 	return validLines
+}
+
+// trimSpaces removes any surrounding whitespace from the specified value.
+func trimSpaces(value string) string {
+	return strings.Trim(value, " ")
 }

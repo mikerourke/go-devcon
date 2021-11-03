@@ -101,7 +101,7 @@ func (dc *DevCon) Disable(matchers ...string) error {
 		return err
 	}
 
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return err
 }
@@ -126,7 +126,7 @@ func (dc *DevCon) Enable(matchers ...string) error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return err
 }
@@ -162,7 +162,7 @@ func (dc *DevCon) Install(infFilePath string, hardwareID string) error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
@@ -190,7 +190,7 @@ func (dc *DevCon) Remove(matchers ...string) error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
@@ -215,7 +215,7 @@ func (dc *DevCon) Rescan() error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
@@ -235,7 +235,7 @@ func (dc *DevCon) Restart(matches ...string) error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }

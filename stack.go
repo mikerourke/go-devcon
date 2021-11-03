@@ -56,6 +56,7 @@ func (dc *DevCon) Stack() ([]DriverStack, error) {
 	return parseStacks(lines), nil
 }
 
+//nolint:funlen // This function is long, but it's relatively simple.
 func parseStacks(lines []string) []DriverStack {
 	type searchStatus int
 
@@ -93,17 +94,20 @@ func parseStacks(lines []string) []DriverStack {
 		search := None
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			line := strings.Trim(lines[lineIndex], " ")
+			line := trimSpaces(lines[lineIndex])
 
-			if lineIndex == groupStart {
+			switch {
+			case lineIndex == groupStart:
 				stack.Device.ID = line
-			} else if lineIndex == groupStart+1 {
+
+			case lineIndex == groupStart+1:
 				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					stack.Device.Name = name
 				}
-			} else if strings.Contains(line, "Setup Class") {
+
+			case strings.Contains(line, "Setup Class"):
 				params := parseParams(reSetupClass, line)
 
 				if guid, ok := params["GUID"]; ok {
@@ -113,25 +117,32 @@ func parseStacks(lines []string) []DriverStack {
 				if name, ok := params["Name"]; ok {
 					stack.SetupClassName = name
 				}
-			} else if strings.Contains(line, "pper filters:") {
+
+			case strings.Contains(line, "pper filters:"):
 				search = UpperFilter
-			} else if strings.Contains(line, "service:") {
+
+			case strings.Contains(line, "service:"):
 				search = Service
-			} else if strings.Contains(line, "ower filters:") {
+
+			case strings.Contains(line, "ower filters:"):
 				search = LowerFilter
-			} else {
-				if search == UpperFilter {
+
+			default:
+				switch search {
+				case UpperFilter:
 					stack.UpperFilters = line
-				} else if search == Service {
+
+				case Service:
 					stack.ControllingService = line
-				} else if search == LowerFilter {
+
+				case LowerFilter:
 					stack.LowerFilters = line
 				}
 			}
+		}
 
-			if lineIndex == groupEnd-1 && stack.Device.Name != "" {
-				stacks = append(stacks, stack)
-			}
+		if stack.Device.Name != "" {
+			stacks = append(stacks, stack)
 		}
 	}
 

@@ -15,16 +15,21 @@ func main() {
 	output, err := dc.DPEnum()
 	if err != nil {
 		fmt.Println(err)
+
 		return
 	}
 
 	data, err := marshalUnescapedJSON(output)
 	if err != nil {
 		fmt.Println(err)
+
 		return
 	}
 
-	ioutil.WriteFile("out/test2.json", data, 0777)
+	//nolint:revive,gomnd // I know what file modes are.
+	if err = ioutil.WriteFile("out/test2.json", data, 0600); err != nil {
+		fmt.Println("Error")
+	}
 }
 
 // marshalUnescapedJSON returns the JSON representation of the specified interface

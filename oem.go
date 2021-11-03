@@ -35,7 +35,7 @@ func (dc *DevCon) DPAdd(infFilePath string) error {
 	}
 
 	// TODO: Parse.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
@@ -75,6 +75,7 @@ func (dc *DevCon) DPDelete(infFileName string, force bool) error {
 	if force {
 		args = append(args, "/f")
 	}
+
 	args = append(args, infFileName)
 
 	lines, err := dc.run(commandDPDelete, args...)
@@ -83,7 +84,7 @@ func (dc *DevCon) DPDelete(infFileName string, force bool) error {
 	}
 
 	// TODO: Parse.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }

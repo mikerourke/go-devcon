@@ -5,9 +5,7 @@ import (
 	"strings"
 )
 
-var (
-	reResource = regexp.MustCompile(`(?P<Name>.*)\s*: (?P<Value>.*)`)
-)
+var reResource = regexp.MustCompile(`(?P<Name>.*)\s*: (?P<Value>.*)`)
 
 // Resource represents an assignable and addressable bus paths, such as DMA
 // channels, I/O ports, IRQ, and memory addresses.
@@ -69,36 +67,39 @@ func parseResources(lines []string) []DeviceResourceUsage {
 		}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			line := strings.Trim(lines[lineIndex], " ")
+			line := trimSpaces(lines[lineIndex])
 
-			if lineIndex == groupStart {
+			switch {
+			case lineIndex == groupStart:
 				resourceUsage.Device.ID = line
-			} else if lineIndex == groupStart+1 {
+
+			case lineIndex == groupStart+1:
 				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					resourceUsage.Device.Name = name
 				}
-			} else {
+
+			default:
 				params := parseParams(reResource, line)
 
 				resource := Resource{}
 				if name, ok := params["Name"]; ok {
-					resource.Name = strings.Trim(name, " ")
+					resource.Name = trimSpaces(name)
 				}
 
 				if value, ok := params["Value"]; ok {
-					resource.Value = strings.Trim(value, " ")
+					resource.Value = trimSpaces(value)
 				}
 
 				if resource.Name != "" {
 					resourceUsage.Resources = append(resourceUsage.Resources, resource)
 				}
 			}
+		}
 
-			if lineIndex == groupEnd-1 && resourceUsage.Device.Name != "" {
-				resourceUsages = append(resourceUsages, resourceUsage)
-			}
+		if resourceUsage.Device.Name != "" {
+			resourceUsages = append(resourceUsages, resourceUsage)
 		}
 	}
 

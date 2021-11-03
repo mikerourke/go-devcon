@@ -1,6 +1,7 @@
 package devcon
 
 import (
+	"errors"
 	"fmt"
 	"io/ioutil"
 	"os/exec"
@@ -50,21 +51,25 @@ func (dc *DevCon) OnRemoteComputer(remotePath string) *DevCon {
 // run executes the `devcon.exe` tool with the specified command and args.
 func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 	if dc.isReboot && !command.CanReboot() {
-		return nil, fmt.Errorf("the %s command does not allow a conditional reboot, remove .ConditionalReboot() to proceed", command)
+		return nil, fmt.Errorf(
+			"the %s command does not allow a conditional reboot, remove .ConditionalReboot() to proceed",
+			command)
 	}
 
 	if dc.remotePath != "" && !command.CanBeRemote() {
-		return nil, fmt.Errorf("the %s command cannot be ran on a remote computer, remove .OnRemoteComputer() to proceed", command)
+		return nil, fmt.Errorf(
+			"the %s command cannot be ran on a remote computer, remove .OnRemoteComputer() to proceed",
+			command)
 	}
 
 	allArgs := make([]string, 0)
 
 	if dc.remotePath != "" {
-		if strings.HasPrefix(dc.remotePath, `\`) {
-			return nil, fmt.Errorf(`the remote computer name cannot have leading backslashes`)
+		if !strings.HasPrefix(dc.remotePath, `\`) {
+			return nil, errors.New("the remote computer name must have leading backslashes")
 		}
 
-		allArgs = append(allArgs, fmt.Sprintf(`/m:\\%s`, dc.remotePath))
+		allArgs = append(allArgs, fmt.Sprintf(`/m:%s`, dc.remotePath))
 	}
 
 	if dc.isReboot {
@@ -90,22 +95,22 @@ func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 	// from the `testdata` directory.
 	if dc.ExeFilePath == "" {
 		fmt.Println("No path specified for devcon.exe, using test data")
+
 		return readTestDataFile(command)
 	}
 
 	out, err := exec.Command(dc.ExeFilePath, allArgs...).Output()
-
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error running %s command: %w", command, err)
 	}
 
 	lines := splitLines(string(out))
 
-	return lines, err
+	return lines, nil
 }
 
-// printResults logs out the results of a command to the console.
-func (dc *DevCon) printResults(lines []string) {
+// logResults logs out the results of a command to the console.
+func (dc *DevCon) logResults(lines []string) {
 	for _, line := range lines {
 		fmt.Println(line)
 	}
@@ -118,7 +123,7 @@ func readTestDataFile(command command) ([]string, error) {
 
 	bytes, err := ioutil.ReadFile(path)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("error reading test data file: %w", err)
 	}
 
 	return splitLines(string(bytes)), nil

@@ -59,23 +59,31 @@ func parseStatus(lines []string) []DriverStatus {
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			line := lines[lineIndex]
 
-			if lineIndex == groupStart {
+			switch {
+			case lineIndex == groupStart:
 				status.Device.ID = line
-			} else if lineIndex == groupStart+1 {
+
+			case lineIndex == groupStart+1:
 				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					status.Device.Name = name
 				}
-			} else {
-				statusLine := strings.Trim(line, " ")
-				if strings.Contains(statusLine, "running") {
+
+			default:
+				statusLine := trimSpaces(line)
+
+				switch {
+				case strings.Contains(statusLine, "running"):
 					status.Status = IsRunning
-				} else if strings.Contains(statusLine, "stopped") {
+
+				case strings.Contains(statusLine, "stopped"):
 					status.Status = IsStopped
-				} else if strings.Contains(statusLine, "disabled") {
+
+				case strings.Contains(statusLine, "disabled"):
 					status.Status = IsDisabled
-				} else {
+
+				default:
 					status.Status = IsUnknown
 				}
 			}

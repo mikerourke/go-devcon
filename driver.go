@@ -88,7 +88,7 @@ func (dc *DevCon) Update(infFile string, hardwareID string) error {
 	lines, err := dc.run(commandUpdate, infFile, hardwareID)
 
 	// TODO: Parse
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return err
 }
@@ -119,7 +119,7 @@ func (dc *DevCon) UpdateNI(infFile string, hardwareID string) error {
 	lines, err := dc.run(commandUpdateNI, infFile, hardwareID)
 
 	// TODO: Parse
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return err
 }
@@ -152,19 +152,21 @@ func parseDriverFileGroups(lines []string) []DriverFileGroup {
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			line := lines[lineIndex]
 
-			if lineIndex == groupStart {
+			switch {
+			case lineIndex == groupStart:
 				fileGroup.Device.ID = line
-			} else if lineIndex == groupStart+1 {
+
+			case lineIndex == groupStart+1:
 				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					fileGroup.Device.Name = name
 				}
-			} else {
-				if reDriverNoInfo.MatchString(line) {
-					continue
-				}
 
+			case reDriverNoInfo.MatchString(line):
+				continue
+
+			default:
 				driverParams := parseParams(reDriverInstalled, line)
 				if infPath, ok := driverParams["INFFile"]; ok && infPath != "" {
 					fileGroup.INFFile = infPath
@@ -189,6 +191,7 @@ func parseDriverFileGroups(lines []string) []DriverFileGroup {
 	return fileGroups
 }
 
+//nolint:funlen // This function is long, but it's relatively simple.
 func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 	groupIndices := make([]int, 0)
 
@@ -218,57 +221,38 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			line := lines[lineIndex]
 
-			if lineIndex == groupStart {
+			switch {
+			case lineIndex == groupStart:
 				nodeGroup.Device.ID = line
-			} else if lineIndex == groupStart+1 {
+
+			case lineIndex == groupStart+1:
 				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					nodeGroup.Device.Name = name
 				}
-			} else if reHash.MatchString(line) {
+
+			case reHash.MatchString(line):
 				matches := reDriverNode.FindStringSubmatch(line)
 
 				if matches != nil {
 					number, _ := strconv.Atoi(matches[1])
 					node.NodeNumber = number
 				}
-			} else if strings.Contains(line, "No DriverNodes") {
+
+			case strings.Contains(line, "No DriverNodes"):
 				continue
-			} else {
+
+			default:
 				params := parseParams(reFieldIsValue, line)
+
 				if field, ok := params["Field"]; ok {
 					value, ok := params["Value"]
 					if !ok {
 						continue
 					}
 
-					switch strings.Trim(field, " ") {
-					case "Inf file":
-						node.INFFile = value
-
-					case "Inf section":
-						node.INFSection = value
-
-					case "Driver description":
-						node.Description = value
-
-					case "Manufacturer name":
-						node.Manufacturer = value
-
-					case "Provider name":
-						node.Provider = value
-
-					case "Driver date":
-						node.Date = value
-
-					case "Driver version":
-						node.Version = value
-
-					case "Driver node rank":
-						number, _ := strconv.Atoi(value)
-						node.NodeRank = number
-					}
+					assignValueToNodeField(node, field, value)
 
 					if value == "digitally signed" {
 						node.IsDigitallySigned = true
@@ -292,4 +276,33 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 	}
 
 	return nodeGroups
+}
+
+func assignValueToNodeField(node DriverNode, field string, value string) {
+	switch trimSpaces(field) {
+	case "Inf file":
+		node.INFFile = value
+
+	case "Inf section":
+		node.INFSection = value
+
+	case "Driver description":
+		node.Description = value
+
+	case "Manufacturer name":
+		node.Manufacturer = value
+
+	case "Provider name":
+		node.Provider = value
+
+	case "Driver date":
+		node.Date = value
+
+	case "Driver version":
+		node.Version = value
+
+	case "Driver node rank":
+		number, _ := strconv.Atoi(value)
+		node.NodeRank = number
+	}
 }

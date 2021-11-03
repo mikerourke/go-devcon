@@ -97,13 +97,13 @@ func (dc *DevCon) ClassFilter(class string, filter ClassFilter, drivers ...strin
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
 
 func parseListClass(lines []string) map[string][]Device {
-	devicesByClassMap := make(map[string][]Device, 0)
+	devicesByClassMap := make(map[string][]Device)
 
 	groupIndices := make([]int, 0)
 
@@ -137,6 +137,7 @@ func parseListClass(lines []string) map[string][]Device {
 				}
 			} else {
 				valuePair := parseColonSeparatedLine(line)
+
 				if valuePair != nil {
 					devices = append(devices, Device{
 						ID:   valuePair[0],
@@ -145,6 +146,7 @@ func parseListClass(lines []string) map[string][]Device {
 				}
 			}
 		}
+
 		devicesByClassMap[class] = devices
 	}
 

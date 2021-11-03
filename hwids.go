@@ -56,9 +56,7 @@ func (dc *DevCon) HwIDs(ids ...string) ([]HwID, error) {
 func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
 	args := idsOrClasses
 	args = append(args, ":=")
-	for _, hardwareId := range hardwareIds {
-		args = append(args, hardwareId)
-	}
+	args = append(args, hardwareIds...)
 
 	lines, err := dc.run(commandSetHwID, args...)
 	if err != nil {
@@ -66,7 +64,7 @@ func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
 	}
 
 	// TODO: Parse lines.
-	dc.printResults(lines)
+	dc.logResults(lines)
 
 	return nil
 }
@@ -107,24 +105,29 @@ func parseHwIDs(lines []string) []HwID {
 		search := None
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			thisLine := lines[lineIndex]
+			line := lines[lineIndex]
 
-			if lineIndex == groupStart {
-				hwid.Device.ID = thisLine
+			switch {
+			case lineIndex == groupStart:
+				hwid.Device.ID = line
 
 				search = None
-			} else if lineIndex == groupStart+1 {
-				nameParams := parseParams(reName, thisLine)
+
+			case lineIndex == groupStart+1:
+				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
 					hwid.Device.Name = name
 				}
-			} else if strings.Contains(thisLine, "Hardware ID") {
+
+			case strings.Contains(line, "Hardware ID"):
 				search = HW
-			} else if strings.Contains(thisLine, "Compatible ID") {
+
+			case strings.Contains(line, "Compatible ID"):
 				search = Compat
-			} else {
-				idLine := strings.Trim(thisLine, " ")
+
+			default:
+				idLine := trimSpaces(line)
 
 				if search == HW {
 					hwid.HardwareIDs = append(hwid.HardwareIDs, idLine)
