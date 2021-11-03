@@ -22,7 +22,7 @@ type DriverStack struct {
 }
 
 func (dc *DevCon) Stack() ([]DriverStack, error) {
-	lines, err := dc.runWithoutArgs(commandStack)
+	lines, err := dc.run(commandStack)
 	if err != nil {
 		return nil, err
 	}

@@ -34,7 +34,7 @@ type DriverNodeGroup struct {
 }
 
 func (dc *DevCon) DriverFiles() ([]DriverFileGroup, error) {
-	lines, err := dc.runWithoutArgs(commandDriverFiles)
+	lines, err := dc.run(commandDriverFiles)
 	if err != nil {
 		return nil, err
 	}
@@ -43,7 +43,7 @@ func (dc *DevCon) DriverFiles() ([]DriverFileGroup, error) {
 }
 
 func (dc *DevCon) DriverNodes() ([]DriverNodeGroup, error) {
-	lines, err := dc.runWithoutArgs(commandDriverNodes)
+	lines, err := dc.run(commandDriverNodes)
 	if err != nil {
 		return nil, err
 	}

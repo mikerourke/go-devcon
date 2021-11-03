@@ -6,7 +6,7 @@ type Device struct {
 }
 
 func (dc *DevCon) Find() ([]Device, error) {
-	lines, err := dc.runWithoutArgs(commandFind)
+	lines, err := dc.run(commandFind)
 	if err != nil {
 		return nil, err
 	}
@@ -26,7 +26,7 @@ func (dc *DevCon) Find() ([]Device, error) {
 }
 
 func (dc *DevCon) FindAll() ([]Device, error) {
-	lines, err := dc.runWithoutArgs(commandFindAll)
+	lines, err := dc.run(commandFindAll)
 	if err != nil {
 		return nil, err
 	}

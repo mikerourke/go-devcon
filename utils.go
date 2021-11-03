@@ -65,7 +65,5 @@ func parseParams(regEx *regexp.Regexp, contents string) map[string]string {
 
 // splitLines splits the specified contents into lines separated by line breaks.
 func splitLines(contents string) []string {
-	contents = strings.ReplaceAll(contents, "\r\n", "\n")
-
-	return strings.Split(contents, "\n")
+	return strings.Split(contents, "\r\n")
 }

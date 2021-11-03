@@ -9,7 +9,7 @@ type Class struct {
 // system do not use. Valid on local and remote computers.
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-classes
 func (dc *DevCon) Classes() ([]Class, error) {
-	lines, err := dc.runWithoutArgs(commandClasses)
+	lines, err := dc.run(commandClasses)
 	if err != nil {
 		return nil, err
 	}

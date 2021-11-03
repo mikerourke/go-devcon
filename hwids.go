@@ -18,7 +18,7 @@ type HwID struct {
 }
 
 func (dc *DevCon) HwIDs() ([]HwID, error) {
-	lines, err := dc.runWithoutArgs(commandHwIDs)
+	lines, err := dc.run(commandHwIDs)
 	if err != nil {
 		return nil, err
 	}

@@ -5,43 +5,19 @@ import (
 	"io/ioutil"
 	"os/exec"
 	"path/filepath"
+	"strings"
 )
 
-type command string
-
-const (
-	commandClasses     command = "classes"
-	commandClassFilter command = "classfilter"
-	commandDisable     command = "disable"
-	commandDpAdd       command = "dp_add"
-	commandDpDelete    command = "dp_delete"
-	commandDpEnum      command = "dp_enum"
-	commandDriverFiles command = "driverfiles"
-	commandDriverNodes command = "drivernodes"
-	commandEnable      command = "enable"
-	commandFind        command = "find"
-	commandFindAll     command = "findall"
-	commandHwIDs       command = "hwids"
-	commandInstall     command = "install"
-	commandListClass   command = "listclass"
-	commandReboot      command = "reboot"
-	commandRemove      command = "remove"
-	commandRescan      command = "rescan"
-	commandResources   command = "resources"
-	commandRestart     command = "restart"
-	commandSetHwID     command = "sethwid"
-	commandStack       command = "stack"
-	commandStatus      command = "status"
-	commandUpdate      command = "update"
-	commandUpdateNI    command = "updateni"
-)
-
-func (c command) String() string {
-	return string(c)
+type Options struct {
+	ID     string
+	Reboot bool
 }
 
 type DevCon struct {
 	ExeFilePath string
+
+	isReboot bool
+	remote   string
 }
 
 func New(exeFilePath string) *DevCon {
@@ -50,27 +26,53 @@ func New(exeFilePath string) *DevCon {
 	}
 }
 
-func (dc *DevCon) runWithoutArgs(command command) ([]string, error) {
-	return readTestDataFile(command)
+func (dc *DevCon) ConditionalReboot() *DevCon {
+	dc.isReboot = true
 
-	out, err := exec.Command(dc.ExeFilePath, command.String()).Output()
-
-	if err != nil {
-		return nil, err
-	}
-
-	lines := splitLines(string(out))
-
-	return lines, nil
+	return dc
 }
 
-func (dc *DevCon) runWithArgs(command command, args []string) ([]string, error) {
-	return readTestDataFile(command)
+func (dc *DevCon) OnRemoteComputer(remote string) *DevCon {
+	dc.remote = remote
 
-	allFlags := []string{command.String()}
+	return dc
+}
+
+func (dc *DevCon) run(command command, args ...string) ([]string, error) {
+	if dc.isReboot && !command.CanReboot() {
+		return nil, fmt.Errorf("the %s command does not allow a conditional reboot, remove .ConditionalReboot() to proceed", command)
+	}
+
+	if dc.remote != "" && !command.CanBeRemote() {
+		return nil, fmt.Errorf("the %s command cannot be ran on a remote computer, remove .OnRemoteComputer() to proceed", command)
+	}
+
+	// return readTestDataFile(command)
+
+	allFlags := make([]string, 0)
+
+	if dc.remote != "" {
+		if strings.HasPrefix(dc.remote, `\`) {
+			return nil, fmt.Errorf(`the remote computer name cannot have leading backslashes`)
+		}
+
+		allFlags = append(allFlags, fmt.Sprintf(`/m:\\%s`, dc.remote))
+	}
+
+	if dc.isReboot {
+		allFlags = append(allFlags, "/r")
+	}
+
+	allFlags = append(allFlags, command.String())
+
 	allFlags = append(allFlags, args...)
 
+	return readTestDataFile(command)
+
 	out, err := exec.Command(dc.ExeFilePath, allFlags...).Output()
+
+	dc.isReboot = false
+	dc.remote = ""
 
 	if err != nil {
 		return nil, err

@@ -9,7 +9,7 @@ type DriverStatus struct {
 }
 
 func (dc *DevCon) Status() ([]DriverStatus, error) {
-	lines, err := dc.runWithoutArgs(commandStatus)
+	lines, err := dc.run(commandStatus)
 	if err != nil {
 		return nil, err
 	}

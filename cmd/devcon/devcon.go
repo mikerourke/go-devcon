@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"io/fs"
 	"io/ioutil"
 
 	"github.com/mikerourke/go-devcon"
@@ -23,5 +22,5 @@ func main() {
 		return
 	}
 
-	ioutil.WriteFile("test.json", bytes, fs.ModePerm)
+	ioutil.WriteFile("test.json", bytes, 0777)
 }

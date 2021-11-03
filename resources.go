@@ -17,7 +17,7 @@ type DeviceResourceUsage struct {
 }
 
 func (dc *DevCon) Resources() ([]DeviceResourceUsage, error) {
-	lines, err := dc.runWithoutArgs(commandResources)
+	lines, err := dc.run(commandResources)
 	if err != nil {
 		return nil, err
 	}
