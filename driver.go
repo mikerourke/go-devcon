@@ -16,13 +16,25 @@ var (
 	reHash            = regexp.MustCompile(`#`)
 )
 
+// DriverFileGroup describes the INF file and section, as well as associated
+// files for a device.
 type DriverFileGroup struct {
-	Device     Device   `json:"device"`
-	INFFile    string   `json:"infFile"`
-	INFSection string   `json:"infSection"`
-	Files      []string `json:"files"`
+	// Device is the device with which the files are associated.
+	Device Device `json:"device"`
+
+	// INFFile is the driver file which is used by the device.
+	INFFile string `json:"infFile"`
+
+	// INFSection is the corresponding section of the INF file.
+	// TODO: This is a bad description.
+	INFSection string `json:"infSection"`
+
+	// Files are the driver files associated with the device driver.
+	Files []string `json:"files"`
 }
 
+// DriverNode describes the components of a driver package.
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package for more information.
 type DriverNode struct {
 	NodeNumber        int    `json:"nodeNumber"`
 	INFFile           string `json:"infFile"`

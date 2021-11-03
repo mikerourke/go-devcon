@@ -5,10 +5,15 @@ import (
 	"strings"
 )
 
+// ClassFilter is used to indicate the filter option for setup classes.
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/develop/device-filter-driver-ordering for more information.
 type ClassFilter string
 
 const (
+	// ClassFilterUpper represent the upper-level filter drivers.
 	ClassFilterUpper ClassFilter = "upper"
+
+	// ClassFilterLower represent the lower-level filter drivers.
 	ClassFilterLower ClassFilter = "lower"
 )
 
