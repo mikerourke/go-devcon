@@ -1,0 +1,3 @@
+Device node created. Install is complete when drivers files are updated...
+Updating drivers for *PNPO30b from c:\windows\inf\keyboard.inf
+Drivers updated successfully.

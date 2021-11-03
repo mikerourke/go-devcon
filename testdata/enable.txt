@@ -1,0 +1,2 @@
+LPTENUM\HEWLETT-PACKARDDESKJET_1120C\1&7530F08&0&LPT1.4        : Enabled
+1 device(s) enabled.

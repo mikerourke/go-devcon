@@ -1,0 +1,8 @@
+ROOT\LEGACY_AFD\0000                                        : legacy
+ROOT\LEGACY_BEEP\0000                                    : beep,legacy
+ROOT\LEGACY_CRCDISK\0000                                    : legacy
+ROOT\LEGACY_DMBOOT\0000                                     : legacy
+ROOT\LEGACY_DMLOAD\0000                                     : legacy
+ROOT\LEGACY_FIPS\0000                                       : legacy
+ROOT\LEGACY_WANARP\0000                                     : legacy
+Modified 7 hardware ID(s).

@@ -1,0 +1,4 @@
+The following 3rd party Driver Packages are on this machine:
+oem2.inf
+    Provider: Microsoft
+    Class: unknown

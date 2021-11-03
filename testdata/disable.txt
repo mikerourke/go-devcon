@@ -1,0 +1,7 @@
+USB\ROOT_HUB\4&2A40B465&0
+: Disabled
+USB\ROOT_HUB\4&7EFA360&0
+: Disabled
+USB\VID_045E&PID_0039\5&29F428A4&0&2
+: Disabled
+3 device(s) disabled.

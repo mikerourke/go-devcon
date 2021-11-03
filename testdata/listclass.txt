@@ -1,0 +1,6 @@
+Listing 2 device(s) for setup class "Ports" (Ports (COM & LPT)).
+ACPI\PNP0400\1                                              : Printer Port (LPT1)
+ACPI\PNP0501\1                                              : Communications Port (COM1)
+Listing 1 device(s) for setup class "Keyboard" (Keyboards).
+ACPI\PNP0303\4&1D401FB5&0                                   : Standard 101/102-Key or Microsoft Natural PS/2 Keyboard
+No devices for setup class "Display" (Display adapters).

@@ -1,0 +1,2 @@
+ACPI\PNP0000\4&B4063F4&0                                    : Enabled on reboot
+Not all of 1 device(s) enabled, at least one requires reboot to complete the operation.

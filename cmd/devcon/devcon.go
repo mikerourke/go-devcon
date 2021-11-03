@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 
@@ -10,17 +12,30 @@ import (
 func main() {
 	dc := devcon.New("")
 
-	output, err := dc.Resources()
+	output, err := dc.DPEnum()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	bytes, err := devcon.MarshalJSON(output)
+	data, err := marshalUnescapedJSON(output)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
 
-	ioutil.WriteFile("test.json", bytes, 0777)
+	ioutil.WriteFile("out/test2.json", data, 0777)
+}
+
+// marshalUnescapedJSON returns the JSON representation of the specified interface
+// without HTML escaped.
+func marshalUnescapedJSON(t interface{}) ([]byte, error) {
+	buffer := &bytes.Buffer{}
+
+	encoder := json.NewEncoder(buffer)
+	encoder.SetEscapeHTML(false)
+
+	err := encoder.Encode(t)
+
+	return buffer.Bytes(), err
 }

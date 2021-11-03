@@ -1,21 +1,38 @@
 package devcon
 
 import (
-	"strconv"
+	"regexp"
 	"strings"
 )
 
-type DeviceResource struct {
-	Name  string      `json:"name"`
-	Value interface{} `json:"value"`
+var (
+	reResource = regexp.MustCompile(`(?P<Name>.*)\s*: (?P<Value>.*)`)
+)
+
+// Resource represents an assignable and addressable bus paths, such as DMA
+// channels, I/O ports, IRQ, and memory addresses.
+type Resource struct {
+	// Name is the name of the resource (e.g. IO or IRQ).
+	Name string `json:"name"`
+
+	// Value is the value of the resource (e.g. "ffa0-ffaf" or 14).
+	Value string `json:"value"`
 }
 
+// DeviceResourceUsage describes the resources that a device is currently using.
 type DeviceResourceUsage struct {
-	DeviceID   string           `json:"deviceId"`
-	DeviceName string           `json:"deviceName"`
-	Resources  []DeviceResource `json:"resources"`
+	// Device is the device associated with the resource usages.
+	Device Device `json:"device"`
+
+	// Resources are the resources currently being used by the device.
+	Resources []Resource `json:"resources"`
 }
 
+// Resources returns the resources allocated to the specified devices. Resources
+// are assignable and addressable bus paths, such as DMA channels, I/O ports,
+// IRQ, and memory addresses. Valid on local and remote computers.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-resources for more information.
 func (dc *DevCon) Resources() ([]DeviceResourceUsage, error) {
 	lines, err := dc.run(commandResources)
 	if err != nil {
@@ -34,7 +51,9 @@ func parseResources(lines []string) []DeviceResourceUsage {
 		}
 	}
 
-	drus := make([]DeviceResourceUsage, 0)
+	groupIndices = append(groupIndices, len(lines))
+
+	resourceUsages := make([]DeviceResourceUsage, 0)
 
 	for index, groupStart := range groupIndices {
 		nextIndex := index + 1
@@ -44,49 +63,44 @@ func parseResources(lines []string) []DeviceResourceUsage {
 
 		groupEnd := groupIndices[nextIndex]
 
-		dru := DeviceResourceUsage{
-			Resources: make([]DeviceResource, 0),
+		resourceUsage := DeviceResourceUsage{
+			Device:    Device{},
+			Resources: make([]Resource, 0),
 		}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			thisLine := strings.Trim(lines[lineIndex], " ")
+			line := strings.Trim(lines[lineIndex], " ")
 
 			if lineIndex == groupStart {
-				dru.DeviceID = thisLine
+				resourceUsage.Device.ID = line
 			} else if lineIndex == groupStart+1 {
-				nameParams := parseParams(reName, thisLine)
+				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
-					dru.DeviceName = name
+					resourceUsage.Device.Name = name
 				}
 			} else {
-				params := parseParams(reResource, thisLine)
+				params := parseParams(reResource, line)
 
-				dr := DeviceResource{}
+				resource := Resource{}
 				if name, ok := params["Name"]; ok {
-					dr.Name = strings.Trim(name, " ")
+					resource.Name = strings.Trim(name, " ")
 				}
 
 				if value, ok := params["Value"]; ok {
-					value = strings.Trim(value, " ")
-					number, err := strconv.Atoi(value)
-					if err == nil {
-						dr.Value = number
-					} else {
-						dr.Value = value
-					}
+					resource.Value = strings.Trim(value, " ")
 				}
 
-				if dr.Name != "" {
-					dru.Resources = append(dru.Resources, dr)
+				if resource.Name != "" {
+					resourceUsage.Resources = append(resourceUsage.Resources, resource)
 				}
 			}
 
-			if lineIndex == groupEnd-1 && dru.DeviceName != "" {
-				drus = append(drus, dru)
+			if lineIndex == groupEnd-1 && resourceUsage.Device.Name != "" {
+				resourceUsages = append(resourceUsages, resourceUsage)
 			}
 		}
 	}
 
-	return drus
+	return resourceUsages
 }

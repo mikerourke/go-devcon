@@ -1,0 +1,2 @@
+ROOT\LEGACY_BEEP\0000                              : beep
+Modified 1 hardware ID(s).

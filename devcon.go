@@ -8,71 +8,92 @@ import (
 	"strings"
 )
 
-type Options struct {
-	ID     string
-	Reboot bool
-}
-
+// DevCon wraps the Device Console package and `devcon.exe` executable and
+// provides commands for interacting with the utility and performing operations.
 type DevCon struct {
+	// ExeFilePath is the path to `devcon.exe` on the computer.
 	ExeFilePath string
 
-	isReboot bool
-	remote   string
+	isReboot   bool
+	remotePath string
 }
 
+// New returns a new instance of DevCon that can be used to run commands and
+// queries.
 func New(exeFilePath string) *DevCon {
 	return &DevCon{
 		ExeFilePath: exeFilePath,
 	}
 }
 
+// ConditionalReboot should be set on the DevCon instance if the computer should
+// be rebooted after running the command. If specified for a command that doesn't
+// allow a conditional reboot, the command will not be run.
 func (dc *DevCon) ConditionalReboot() *DevCon {
 	dc.isReboot = true
 
 	return dc
 }
 
-func (dc *DevCon) OnRemoteComputer(remote string) *DevCon {
-	dc.remote = remote
+// OnRemoteComputer should be set on the DevCon instance if the command should
+// be run on a remote computer. If specified for a command that cannot be
+// run on a remote computer, the command will not be run.
+//
+// Important
+// Ensure there are no leading backslashes specified in the remote path.
+func (dc *DevCon) OnRemoteComputer(remotePath string) *DevCon {
+	dc.remotePath = remotePath
 
 	return dc
 }
 
+// run executes the `devcon.exe` tool with the specified command and args.
 func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 	if dc.isReboot && !command.CanReboot() {
 		return nil, fmt.Errorf("the %s command does not allow a conditional reboot, remove .ConditionalReboot() to proceed", command)
 	}
 
-	if dc.remote != "" && !command.CanBeRemote() {
+	if dc.remotePath != "" && !command.CanBeRemote() {
 		return nil, fmt.Errorf("the %s command cannot be ran on a remote computer, remove .OnRemoteComputer() to proceed", command)
 	}
 
-	// return readTestDataFile(command)
+	allArgs := make([]string, 0)
 
-	allFlags := make([]string, 0)
-
-	if dc.remote != "" {
-		if strings.HasPrefix(dc.remote, `\`) {
+	if dc.remotePath != "" {
+		if strings.HasPrefix(dc.remotePath, `\`) {
 			return nil, fmt.Errorf(`the remote computer name cannot have leading backslashes`)
 		}
 
-		allFlags = append(allFlags, fmt.Sprintf(`/m:\\%s`, dc.remote))
+		allArgs = append(allArgs, fmt.Sprintf(`/m:\\%s`, dc.remotePath))
 	}
 
 	if dc.isReboot {
-		allFlags = append(allFlags, "/r")
+		allArgs = append(allArgs, "/r")
 	}
 
-	allFlags = append(allFlags, command.String())
+	allArgs = append(allArgs, command.String())
 
-	allFlags = append(allFlags, args...)
+	for _, arg := range args {
+		if strings.Contains(arg, "&") {
+			allArgs = append(allArgs, fmt.Sprintf(`"%s"`, arg))
+		} else {
+			allArgs = append(allArgs, arg)
+		}
+	}
 
-	return readTestDataFile(command)
-
-	out, err := exec.Command(dc.ExeFilePath, allFlags...).Output()
-
+	// Reset these to their defaults to ensure they don't get applied to any
+	// subsequent commands.
 	dc.isReboot = false
-	dc.remote = ""
+	dc.remotePath = ""
+
+	// Read and parse the contents of the file associated with the command
+	// from the `testdata` directory.
+	if dc.ExeFilePath == "" {
+		fmt.Println("No path specified for devcon.exe, using test data")
+		return readTestDataFile(command)
+	}
+
+	out, err := exec.Command(dc.ExeFilePath, allArgs...).Output()
 
 	if err != nil {
 		return nil, err
@@ -81,6 +102,13 @@ func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 	lines := splitLines(string(out))
 
 	return lines, err
+}
+
+// printResults logs out the results of a command to the console.
+func (dc *DevCon) printResults(lines []string) {
+	for _, line := range lines {
+		fmt.Println(line)
+	}
 }
 
 func readTestDataFile(command command) ([]string, error) {

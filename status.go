@@ -2,12 +2,28 @@ package devcon
 
 import "strings"
 
+type Status string
+
+const (
+	IsRunning  Status = "running"
+	IsStopped  Status = "stopped"
+	IsDisabled Status = "disabled"
+	IsUnknown  Status = "unknown"
+)
+
 type DriverStatus struct {
-	DeviceID   string `json:"deviceId"`
-	DeviceName string `json:"deviceName"`
-	IsRunning  bool   `json:"isRunning"`
+	Device Device `json:"device"`
+	Status Status `json:"status"`
 }
 
+// Status returns the status (running, stopped, or disabled) of the driver for
+// devices on the computer. Valid on local and remote computers.
+//
+// Notes
+// If the status of the device cannot be determined, such as when the device is
+// no longer attached to the computer, the status from the status display.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-status for more information.
 func (dc *DevCon) Status() ([]DriverStatus, error) {
 	lines, err := dc.run(commandStatus)
 	if err != nil {
@@ -26,6 +42,8 @@ func parseStatus(lines []string) []DriverStatus {
 		}
 	}
 
+	groupIndices = append(groupIndices, len(lines))
+
 	statuses := make([]DriverStatus, 0)
 
 	for index, groupStart := range groupIndices {
@@ -39,24 +57,32 @@ func parseStatus(lines []string) []DriverStatus {
 		status := DriverStatus{}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			thisLine := lines[lineIndex]
+			line := lines[lineIndex]
 
 			if lineIndex == groupStart {
-				status.DeviceID = thisLine
+				status.Device.ID = line
 			} else if lineIndex == groupStart+1 {
-				nameParams := parseParams(reName, thisLine)
+				nameParams := parseParams(reName, line)
 
 				if name, ok := nameParams["Name"]; ok {
-					status.DeviceName = name
+					status.Device.Name = name
 				}
 			} else {
-				statusLine := strings.Trim(thisLine, " ")
-				status.IsRunning = statusLine == "Driver is running."
+				statusLine := strings.Trim(line, " ")
+				if strings.Contains(statusLine, "running") {
+					status.Status = IsRunning
+				} else if strings.Contains(statusLine, "stopped") {
+					status.Status = IsStopped
+				} else if strings.Contains(statusLine, "disabled") {
+					status.Status = IsDisabled
+				} else {
+					status.Status = IsUnknown
+				}
 			}
+		}
 
-			if lineIndex == groupEnd-1 && status.DeviceName != "" {
-				statuses = append(statuses, status)
-			}
+		if status.Device.Name != "" {
+			statuses = append(statuses, status)
 		}
 	}
 

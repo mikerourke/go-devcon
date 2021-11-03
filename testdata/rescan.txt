@@ -1,0 +1,2 @@
+Scanning for new hardware.
+Scanning completed.

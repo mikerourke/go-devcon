@@ -1,0 +1,2 @@
+Updating drivers for *PNP0501 from c:\windows\inf\test.inf.
+devcon failed.

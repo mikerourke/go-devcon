@@ -18,9 +18,9 @@ const (
 	// The commands represent actions, they _do_ make changes to the system.
 	commandClassFilter command = "classfilter"
 	commandDisable     command = "disable"
-	commandDpAdd       command = "dp_add"
-	commandDpDelete    command = "dp_delete"
-	commandDpEnum      command = "dp_enum"
+	commandDPAdd       command = "dp_add"
+	commandDPDelete    command = "dp_delete"
+	commandDPEnum      command = "dp_enum"
 	commandEnable      command = "enable"
 	commandInstall     command = "install"
 	commandReboot      command = "reboot"
