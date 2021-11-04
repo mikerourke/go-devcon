@@ -10,10 +10,8 @@ package devcon
 import (
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"os/exec"
-	"path/filepath"
 	"strings"
 )
 
@@ -52,7 +50,7 @@ func New(exeFilePath string) *DevCon {
 //
 // Add to the DevCon instance before the command.
 //
-//	dc.WithConditionalReboot().Enable()
+//	dc.WithConditionalReboot().Enable("*")
 func (dc *DevCon) WithConditionalReboot() *DevCon {
 	dc.IsRebooted = true
 
