@@ -1,78 +1,111 @@
+// Package devcon wraps the Windows Device Console (devcon.exe) utility.
+//
+// The Windows Device Console is a command-line tool that displays detailed
+// information about devices on computers running Windows. You can use DevCon
+// to enable, disable, install, configure, and remove devices.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon for more information.
 package devcon
 
 import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"os/exec"
 	"path/filepath"
 	"strings"
 )
 
-// DevCon wraps the Device Console package and `devcon.exe` executable and
-// provides commands for interacting with the utility and performing operations.
+// DevCon is the main entry point for the utility. It is created with New().
 type DevCon struct {
 	// ExeFilePath is the path to `devcon.exe` on the computer.
 	ExeFilePath string
 
-	isReboot   bool
-	remotePath string
+	// IsRebooted indicates that the computer will be conditionally rebooted
+	// after running a command.
+	IsRebooted bool
+
+	// RemotePath is the path to a remote computer.
+	RemotePath string
 }
 
 // New returns a new instance of DevCon that can be used to run commands and
 // queries.
+//
+// The path to `devcon.exe` must be specified because this package does not
+// ship with a copy of the executable and versions may vary by Windows version.
 func New(exeFilePath string) *DevCon {
 	return &DevCon{
 		ExeFilePath: exeFilePath,
 	}
 }
 
-// ConditionalReboot should be set on the DevCon instance if the computer should
+// WithConditionalReboot should be set on the DevCon instance if the computer should
 // be rebooted after running the command. If specified for a command that doesn't
 // allow a conditional reboot, the command will not be run.
-func (dc *DevCon) ConditionalReboot() *DevCon {
-	dc.isReboot = true
+//
+// Note that the computer will only be rebooted if a reboot is required.
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
+//
+// Usage
+//
+// Add to the DevCon instance before the command.
+//
+//	dc.WithConditionalReboot().Enable()
+func (dc *DevCon) WithConditionalReboot() *DevCon {
+	dc.IsRebooted = true
 
 	return dc
 }
 
-// OnRemoteComputer should be set on the DevCon instance if the command should
+// WithRemoteComputer should be set on the DevCon instance if the command should
 // be run on a remote computer. If specified for a command that cannot be
 // run on a remote computer, the command will not be run.
 //
-// Important
-// Ensure there are no leading backslashes specified in the remote path.
-func (dc *DevCon) OnRemoteComputer(remotePath string) *DevCon {
-	dc.remotePath = remotePath
+// To call a method for a remote computer, the Group Policy setting must allow
+// the Plug and Play service to run on the remote computer. On computers that
+// run Windows Vista and Windows 7, the Group Policy disables remote access to
+// the service by default. On computers that run WDK 8.1 and WDK 8, the remote access is unavailable.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
+//
+// Usage
+//
+// Add to the DevCon instance before the command.
+//
+//	dc.WithRemoteComputer(`\\server01`).Enable("USB\VID_0403&PID_6001\AB0K0SRH")
+func (dc *DevCon) WithRemoteComputer(remotePath string) *DevCon {
+	dc.RemotePath = remotePath
 
 	return dc
 }
 
 // run executes the `devcon.exe` tool with the specified command and args.
 func (dc *DevCon) run(command command, args ...string) ([]string, error) {
-	if dc.isReboot && !command.CanReboot() {
+	if dc.IsRebooted && !command.CanReboot() {
 		return nil, fmt.Errorf(
-			"the %s command does not allow a conditional reboot, remove .ConditionalReboot() to proceed",
+			"the %s command does not allow a conditional reboot, remove .WithConditionalReboot() to proceed",
 			command)
 	}
 
-	if dc.remotePath != "" && !command.CanBeRemote() {
+	if dc.RemotePath != "" && !command.CanBeRemote() {
 		return nil, fmt.Errorf(
-			"the %s command cannot be ran on a remote computer, remove .OnRemoteComputer() to proceed",
+			"the %s command cannot be ran on a remote computer, remove .WithRemoteComputer() to proceed",
 			command)
 	}
 
 	allArgs := make([]string, 0)
 
-	if dc.remotePath != "" {
-		if !strings.HasPrefix(dc.remotePath, `\`) {
+	if dc.RemotePath != "" {
+		if !strings.HasPrefix(dc.RemotePath, `\`) {
 			return nil, errors.New("the remote computer name must have leading backslashes")
 		}
 
-		allArgs = append(allArgs, fmt.Sprintf(`/m:%s`, dc.remotePath))
+		allArgs = append(allArgs, fmt.Sprintf(`/m:%s`, dc.RemotePath))
 	}
 
-	if dc.isReboot {
+	if dc.IsRebooted {
 		allArgs = append(allArgs, "/r")
 	}
 
@@ -88,25 +121,51 @@ func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 
 	// Reset these to their defaults to ensure they don't get applied to any
 	// subsequent commands.
-	dc.isReboot = false
-	dc.remotePath = ""
+	dc.IsRebooted = false
+	dc.RemotePath = ""
 
-	// Read and parse the contents of the file associated with the command
-	// from the `testdata` directory.
 	if dc.ExeFilePath == "" {
-		fmt.Println("No path specified for devcon.exe, using test data")
-
 		return readTestDataFile(command)
+		// return nil, errors.New("invalid devcon.exe path specified")
 	}
 
-	out, err := exec.Command(dc.ExeFilePath, allArgs...).Output()
+	if _, err := os.Stat(dc.ExeFilePath); os.IsNotExist(err) {
+		return nil, fmt.Errorf("%s does not exist", dc.ExeFilePath)
+	}
+
+	output, err := exec.Command(dc.ExeFilePath, allArgs...).Output()
+
+	lines := splitLines(string(output))
+
 	if err != nil {
-		return nil, fmt.Errorf("error running %s command: %w", command, err)
+		return lines, fmt.Errorf("error running %s command: %s", command, err)
 	}
-
-	lines := splitLines(string(out))
 
 	return lines, nil
+}
+
+// substrInLines returns the index of the line in the specified lines slice
+// where the matching substr was found. If the substr was not found, return -1.
+func substrInLines(lines []string, substr string) int {
+	for index, line := range lines {
+		if strings.Contains(line, substr) {
+			return index
+		}
+	}
+
+	return -1
+}
+
+// concatIdsOrClasses combines the first ID or class (required for a command)
+// with any additional variadic inputs to the method.
+func concatIdsOrClasses(idOrClass string, idsOrClasses ...string) []string {
+	all := []string{idOrClass}
+
+	if len(idsOrClasses) != 0 {
+		all = append(all, idsOrClasses...)
+	}
+
+	return all
 }
 
 // logResults logs out the results of a command to the console.

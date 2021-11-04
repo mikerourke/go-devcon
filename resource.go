@@ -28,7 +28,9 @@ type DeviceResourceUsage struct {
 
 // Resources returns the resources allocated to the specified devices. Resources
 // are assignable and addressable bus paths, such as DMA channels, I/O ports,
-// IRQ, and memory addresses. Valid on local and remote computers.
+// IRQ, and memory addresses.
+//
+// Running with the WithRemoteComputer() option is allowed.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-resources for more information.
 func (dc *DevCon) Resources() ([]DeviceResourceUsage, error) {

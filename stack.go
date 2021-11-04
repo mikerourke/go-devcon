@@ -35,16 +35,15 @@ type DriverStack struct {
 }
 
 // Stack returns the expected driver stack for the specified devices, and the
-// GUID and the name of the device setup class for each device. Valid on local
-// and remote computers.
-//
-// Notes
-// This function the expected driver stack for a device. Although the actual
-// driver stack typically matches the expected stack, variations are possible.
+// GUID and the name of the device setup class for each device. Although the
+// actual driver stack typically matches the expected stack, variations are
+// possible.
 //
 // To investigate a device problem, compare the expected driver stack from the
 // stack operation with the actual drivers that the device uses, as returned
 // from DriverFiles().
+//
+// Running with the WithRemoteComputer() option is allowed.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-stack for more information.
 func (dc *DevCon) Stack() ([]DriverStack, error) {

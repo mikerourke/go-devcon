@@ -3,19 +3,23 @@ package devcon
 import "strings"
 
 // HwID contains the hardware IDs and compatible IDs for a device.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/hardware-ids for more information
+// about Hardware IDs.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/compatible-ids for more information
+// about Compatible IDs.
 type HwID struct {
 	Device Device `json:"device"`
 
-	// HardwareIDs is a vendor-defined identification string that Windows uses to match a device to an INF file.
-	// In most cases, a device has more than one hardware ID associated with it.
-	// Typically, a list of hardware IDs is sorted from most to least suitable for a device.
-	//
-	// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/hardware-ids for more information.
+	// HardwareIDs is a vendor-defined identification string that Windows uses
+	// to match a device to an INF file. In most cases, a device has more than
+	// one hardware ID associated with it. Typically, a list of hardware IDs is
+	// sorted from most to least suitable for a device.
 	HardwareIDs []string `json:"hardwareIds"`
 
-	// CompatibleIDs are the vendor-defined identification strings that Windows uses to match a device to an INF file.
-	//
-	// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/compatible-ids for more information.
+	// CompatibleIDs are the vendor-defined identification strings that Windows
+	// uses to match a device to an INF file.
 	CompatibleIDs []string `json:"compatibleIds"`
 }
 
@@ -23,13 +27,9 @@ type HwID struct {
 // device instance IDs of the specified devices. Valid on local and remote
 // computers.
 //
-// Example
-//	dc := devcon.New("path\to\devcon.exe")
-//	dc.OnRemote("server01").HwIDs("acpi*", "=usb")
-//
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-hwids for more information.
-func (dc *DevCon) HwIDs(ids ...string) ([]HwID, error) {
-	lines, err := dc.run(commandHwIDs, ids...)
+func (dc *DevCon) HwIDs(idsOrClasses ...string) ([]HwID, error) {
+	lines, err := dc.run(commandHwIDs, idsOrClasses...)
 	if err != nil {
 		return nil, err
 	}
@@ -38,9 +38,8 @@ func (dc *DevCon) HwIDs(ids ...string) ([]HwID, error) {
 }
 
 // SetHwID adds, deletes, and changes the order of hardware IDs of root-enumerated
-// devices on a local or remote computer.
+// devices.
 //
-// Notes
 // A root-enumerated device is a device that appears in the ROOT registry
 // subkey (HKEY_LOCAL_MACHINE\System\ControlSet\Enum\ROOT).
 //
@@ -51,6 +50,8 @@ func (dc *DevCon) HwIDs(ids ...string) ([]HwID, error) {
 //
 // SetHwID moves, rather than adds, a hardware ID if the specified hardware ID
 // already exists in the list of hardware IDs for the device.
+//
+// Running with the WithRemoteComputer() option is allowed.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-sethwid for more information.
 func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
@@ -69,6 +70,8 @@ func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
 	return nil
 }
 
+// parseHwIDs loops through the specified output lines and returns a slice of
+// HwID instances.
 func parseHwIDs(lines []string) []HwID {
 	type searchStatus int
 

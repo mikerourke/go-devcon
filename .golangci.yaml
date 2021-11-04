@@ -91,14 +91,6 @@ linters-settings:
       - io.Copy(*bytes.Buffer)
       - io.Copy(os.Stdout)
 
-  errorlint:
-    # Check whether fmt.Errorf uses the %w verb for formatting errors. See the readme for caveats
-    errorf: true
-    # Check for plain type assertions and type switches
-    asserts: true
-    # Check for plain error comparisons
-    comparison: true
-
   exhaustive:
     # check switch statements in generated files also
     check-generated: false
@@ -409,8 +401,8 @@ linters-settings:
         severity: warning
         arguments:
           - maxLitCount: "3"
-            allowStrs: '""'
-            allowInts: "0,1,2"
+            allowStrs: '"",`\path\to\devcon.exe`'
+            allowInts: "0,1,2,3"
             allowFloats: "0.0,0.,1.0,1.,2.0,2."
 
   staticcheck:
@@ -535,4 +527,5 @@ linters:
     - cyclop
     - goerr113
     - gofumpt
+    - errorlint
   fast: false

@@ -1,6 +1,7 @@
 package devcon
 
 import (
+	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
@@ -34,32 +35,73 @@ type DriverFileGroup struct {
 }
 
 // DriverNode describes the components of a driver package.
-// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package for more information.
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/components-of-a-driver-package
+// for more information about driver packages.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/install/how-setup-ranks-drivers--windows-vista-and-later-
+// for more information about node rank.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/device-node-status-flags
+// for more information about node flags.
 type DriverNode struct {
-	NodeNumber        int    `json:"nodeNumber"`
-	INFFile           string `json:"infFile"`
-	INFSection        string `json:"infSection"`
-	Description       string `json:"description"`
-	Manufacturer      string `json:"manufacturer"`
-	Provider          string `json:"provider"`
-	Date              string `json:"date"`
-	Version           string `json:"version"`
-	NodeRank          int    `json:"nodeRank"`
-	NodeFlags         int    `json:"nodeFlags"`
-	IsDigitallySigned bool   `json:"isDigitallySigned"`
+	// NodeNumber represents the node order for the device driver.
+	NodeNumber int `json:"nodeNumber"`
+
+	// INFFile is the fully qualified path to the INF file.
+	INFFile string `json:"infFile"`
+
+	// INFSection is the section of the INF file to which this device
+	// corresponds.
+	INFSection string `json:"infSection"`
+
+	// Description is the description of the device.
+	Description string `json:"description"`
+
+	// Manufacturer is the name of the device manufacturer.
+	Manufacturer string `json:"manufacturer"`
+
+	// Provider is the name of the driver provider (e.g. Microsoft).
+	Provider string `json:"provider"`
+
+	// Date is the date associated with the current driver version.
+	Date string `json:"date"`
+
+	// Version is the current version of the driver.
+	Version string `json:"version"`
+
+	// NodeRank indicates how well the driver matches the device. A driver rank
+	// is represented by an integer that is equal to or greater than zero. The
+	// lower the rank, the better a match the driver is for the device.
+	NodeRank int `json:"nodeRank"`
+
+	// NodeFlags describe the status of a device.
+	NodeFlags int `json:"nodeFlags"`
+
+	// IsDigitallySigned indicates that the driver has been digitally signed.
+	IsDigitallySigned bool `json:"isDigitallySigned"`
 }
 
+// DriverNodeGroup contains device details as well as details for the corresponding
+// driver nodes.
 type DriverNodeGroup struct {
-	Device Device       `json:"device"`
-	Nodes  []DriverNode `json:"nodes"`
+	// Device is the device with which the nodes are associated.
+	Device Device `json:"device"`
+
+	// Nodes are DriverNode records that describe the nodes associated with the
+	// device driver.
+	Nodes []DriverNode `json:"nodes"`
 }
 
 // DriverFiles returns the full path and file name of installed INF files and
-// device driver files for the specified devices. Valid only on the local computer.
+// device driver files for the specified devices.
+//
+// Cannot be run with the WithRemoteComputer() option.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-driverfiles for more information.
-func (dc *DevCon) DriverFiles() ([]DriverFileGroup, error) {
-	lines, err := dc.run(commandDriverFiles)
+func (dc *DevCon) DriverFiles(idOrClass string, idsOrClasses ...string) ([]DriverFileGroup, error) {
+	allIdsOrClasses := concatIdsOrClasses(idOrClass, idsOrClasses...)
+
+	lines, err := dc.run(commandDriverFiles, allIdsOrClasses...)
 	if err != nil {
 		return nil, err
 	}
@@ -67,8 +109,20 @@ func (dc *DevCon) DriverFiles() ([]DriverFileGroup, error) {
 	return parseDriverFileGroups(lines), nil
 }
 
-func (dc *DevCon) DriverNodes() ([]DriverNodeGroup, error) {
-	lines, err := dc.run(commandDriverNodes)
+// DriverNodes returns all driver packages that are compatible with the device,
+// along with their version and ranking.
+//
+// The DriverNodes method is particularly useful for troubleshooting setup
+// problems. For example, you can use it to determine whether a Windows INF
+// file or a customized third-party INF file was used for a device.
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-drivernodes for more information.
+func (dc *DevCon) DriverNodes(idOrClass string, idsOrClasses ...string) ([]DriverNodeGroup, error) {
+	allIdsOrClasses := concatIdsOrClasses(idOrClass, idsOrClasses...)
+
+	lines, err := dc.run(commandDriverNodes, allIdsOrClasses...)
 	if err != nil {
 		return nil, err
 	}
@@ -77,9 +131,8 @@ func (dc *DevCon) DriverNodes() ([]DriverNodeGroup, error) {
 }
 
 // Update forcibly replaces the current device drivers for a specified device
-// with drivers listed in the specified INF file. Valid only on the local computer.
+// with drivers listed in the specified INF file.
 //
-// Notes
 // Update forces an update to the most appropriate drivers in the specified INF
 // file, even if those drivers are older or less appropriate than the current drivers
 // or the drivers in a different INF file.
@@ -92,30 +145,33 @@ func (dc *DevCon) DriverNodes() ([]DriverNodeGroup, error) {
 // Or with the DriverFiles() function:
 //	dc.DriverFiles("ISAPNP\CSC4324\0")
 //
-// The system might need to be rebooted to make this change effective. To
-// reboot the system, add ConditionalReboot() before Update().
+// The system might need to be rebooted to make this change effective. To reboot
+// the system if required, use:
+//	dc.WithConditionalReboot().Update()
+//
+// Cannot be run with the WithRemoteComputer() option.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-update for more information.
 func (dc *DevCon) Update(infFile string, hardwareID string) error {
 	lines, err := dc.run(commandUpdate, infFile, hardwareID)
 
-	// TODO: Parse
-	dc.logResults(lines)
+	if substrInLines(lines, "success") == -1 {
+		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
+	}
 
 	return err
 }
 
 // UpdateNI forcibly replaces the current device drivers with drivers listed in
 // the specified INF file without prompting the user for information or
-// confirmation. Valid only on the local computer.
+// confirmation.
 //
-// Notes
-// UpdateNI suppresses all user prompts that require a response and assumes the
-// default response. As a result, you cannot use this operation to install
+// This method suppresses all user prompts that require a response and assumes
+// the default response. As a result, you cannot use this operation to install
 // unsigned drivers. To display user prompts during an update, use Update().
 //
-// UpdateNI forces an update, even if the drivers in the specified INF file are
-// older or less appropriate than the current drivers.
+// This method forces an update, even if the drivers in the specified INF file
+// are older or less appropriate than the current drivers.
 //
 // Before updating the driver for any device, determine which devices will
 // be affected. To do so, pass the name to the HwIDs() function:
@@ -123,19 +179,25 @@ func (dc *DevCon) Update(infFile string, hardwareID string) error {
 // Or with the DriverFiles() function:
 //	dc.DriverFiles("ISAPNP\CSC4324\0")
 //
-// The system might need to be rebooted to make this change effective. To
-// reboot the system, add ConditionalReboot() before UpdateNI().
+// The system might need to be rebooted to make this change effective. To reboot
+// the system if required, use:
+//	dc.WithConditionalReboot().UpdateNI()
+//
+// Cannot be run with the WithRemoteComputer() option.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-updateni for more information.
 func (dc *DevCon) UpdateNI(infFile string, hardwareID string) error {
 	lines, err := dc.run(commandUpdateNI, infFile, hardwareID)
 
-	// TODO: Parse
-	dc.logResults(lines)
+	if substrInLines(lines, "success") == -1 {
+		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
+	}
 
 	return err
 }
 
+// parseDriverFileGroups loops through the specified lines and returns a slice
+// of DriverFileGroup records.
 func parseDriverFileGroups(lines []string) []DriverFileGroup {
 	groupIndices := make([]int, 0)
 
@@ -203,6 +265,8 @@ func parseDriverFileGroups(lines []string) []DriverFileGroup {
 	return fileGroups
 }
 
+// parseDriverNodeGroups loops through the specified lines and returns a slice
+// of DriverNodeGroup records.
 //nolint:funlen // This function is long, but it's relatively simple.
 func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 	groupIndices := make([]int, 0)
@@ -264,7 +328,32 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 						continue
 					}
 
-					assignValueToNodeField(node, field, value)
+					switch trimSpaces(field) {
+					case "Inf file":
+						node.INFFile = value
+
+					case "Inf section":
+						node.INFSection = value
+
+					case "Driver description":
+						node.Description = value
+
+					case "Manufacturer name":
+						node.Manufacturer = value
+
+					case "Provider name":
+						node.Provider = value
+
+					case "Driver date":
+						node.Date = value
+
+					case "Driver version":
+						node.Version = value
+
+					case "Driver node rank":
+						number, _ := strconv.Atoi(value)
+						node.NodeRank = number
+					}
 
 					if value == "digitally signed" {
 						node.IsDigitallySigned = true
@@ -288,33 +377,4 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 	}
 
 	return nodeGroups
-}
-
-func assignValueToNodeField(node DriverNode, field string, value string) {
-	switch trimSpaces(field) {
-	case "Inf file":
-		node.INFFile = value
-
-	case "Inf section":
-		node.INFSection = value
-
-	case "Driver description":
-		node.Description = value
-
-	case "Manufacturer name":
-		node.Manufacturer = value
-
-	case "Provider name":
-		node.Provider = value
-
-	case "Driver date":
-		node.Date = value
-
-	case "Driver version":
-		node.Version = value
-
-	case "Driver node rank":
-		number, _ := strconv.Atoi(value)
-		node.NodeRank = number
-	}
 }

@@ -7,9 +7,11 @@ import (
 
 var (
 	reName     = regexp.MustCompile(`Name: (?P<Name>.*)`)
-	reNameDesc = regexp.MustCompile(`(?P<Name>.*): (?P<Desc>.*)`)
+	reKeyValue = regexp.MustCompile(`(?P<Key>.*): (?P<Value>.*)`)
 )
 
+// parseColonSeparatedLines returns a slice of 2-element slices from the
+// parseColonSeparatedLine function where each slice corresponds to a line.
 func parseColonSeparatedLines(lines []string) [][]string {
 	values := make([][]string, 0)
 
@@ -25,26 +27,28 @@ func parseColonSeparatedLines(lines []string) [][]string {
 	return values
 }
 
+// parseColonSeparatedLine returns a 2-element slice where the first element is
+// the key (before the colon) and second is the value (after the colon).
 func parseColonSeparatedLine(line string) []string {
 	if len(line) == 0 {
 		return nil
 	}
 
-	params := parseParams(reNameDesc, line)
-	name, ok := params["Name"]
+	params := parseParams(reKeyValue, line)
+	key, ok := params["Key"]
 
 	if !ok {
 		return nil
 	}
 
-	name = trimSpaces(name)
+	key = trimSpaces(key)
 
-	desc, ok := params["Desc"]
+	value, ok := params["Value"]
 	if ok {
-		desc = trimSpaces(desc)
+		value = trimSpaces(value)
 	}
 
-	return []string{name, desc}
+	return []string{key, value}
 }
 
 // parseParams applies the specified regEx to the specified contents and returns

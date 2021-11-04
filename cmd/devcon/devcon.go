@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 
 	"github.com/mikerourke/go-devcon"
 )
@@ -12,28 +11,19 @@ import (
 func main() {
 	dc := devcon.New("")
 
-	output, err := dc.DPEnum()
+	results, err := dc.Restart("*")
 	if err != nil {
 		fmt.Println(err)
 
 		return
 	}
 
-	data, err := marshalUnescapedJSON(output)
-	if err != nil {
-		fmt.Println(err)
-
-		return
-	}
-
-	//nolint:revive,gomnd // I know what file modes are.
-	if err = ioutil.WriteFile("out/test2.json", data, 0600); err != nil {
-		fmt.Println("Error")
-	}
+	fmt.Printf("ID: %s, Was restarted: %v\n", results[0].ID, results[0].WasRestarted)
 }
 
 // marshalUnescapedJSON returns the JSON representation of the specified interface
 // without HTML escaped.
+//nolint:deadcode,unused // This is for testing purposes.
 func marshalUnescapedJSON(t interface{}) ([]byte, error) {
 	buffer := &bytes.Buffer{}
 

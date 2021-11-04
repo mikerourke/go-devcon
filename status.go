@@ -2,26 +2,40 @@ package devcon
 
 import "strings"
 
+// Status indicates the current status of a device driver.
 type Status string
 
 const (
-	IsRunning  Status = "running"
-	IsStopped  Status = "stopped"
-	IsDisabled Status = "disabled"
-	IsUnknown  Status = "unknown"
+	// StatusRunning indicates that the device driver is running.
+	StatusRunning Status = "running"
+
+	// StatusStopped indicates that the device driver is stopped.
+	StatusStopped Status = "stopped"
+
+	// StatusDisabled indicates that the device driver is disabled.
+	StatusDisabled Status = "disabled"
+
+	// StatusUnknown indicates that the status could not be queried or is
+	// unknown.
+	StatusUnknown Status = "unknown"
 )
 
+// DriverStatus contains details of the status of a device driver.
 type DriverStatus struct {
+	// Device is the device that corresponds to the driver.
 	Device Device `json:"device"`
+
+	// Status is the current status of the device driver.
 	Status Status `json:"status"`
 }
 
 // Status returns the status (running, stopped, or disabled) of the driver for
-// devices on the computer. Valid on local and remote computers.
+// devices on the computer.
 //
-// Notes
 // If the status of the device cannot be determined, such as when the device is
 // no longer attached to the computer, the status from the status display.
+//
+// Running with the WithRemoteComputer() option is allowed.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-status for more information.
 func (dc *DevCon) Status() ([]DriverStatus, error) {
@@ -75,16 +89,16 @@ func parseStatus(lines []string) []DriverStatus {
 
 				switch {
 				case strings.Contains(statusLine, "running"):
-					status.Status = IsRunning
+					status.Status = StatusRunning
 
 				case strings.Contains(statusLine, "stopped"):
-					status.Status = IsStopped
+					status.Status = StatusStopped
 
 				case strings.Contains(statusLine, "disabled"):
-					status.Status = IsDisabled
+					status.Status = StatusDisabled
 
 				default:
-					status.Status = IsUnknown
+					status.Status = StatusUnknown
 				}
 			}
 		}

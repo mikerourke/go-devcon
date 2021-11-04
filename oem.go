@@ -1,41 +1,45 @@
 package devcon
 
 import (
+	"errors"
 	"strings"
 )
 
+// OEMPackage describes 3rd party packages installed on the computer.
 type OEMPackage struct {
-	Name     string
+	// Name is the name of the INF file associated with the package.
+	Name string
+
+	// Provider is the provider of the package (e.g. Microsoft).
 	Provider string
-	Class    string
+
+	// Class is the name of the corresponding class (if any).
+	Class string
 }
 
 // DPAdd adds a third-party (OEM) driver package to the driver store on the
 // local computer. The infFilePath parameter is the fully qualified path and
 // name of the INF file for the driver package.
 //
-// Notes
-// DPAdd copies the specified INF file to the `%windir%/Inf` directory and
+// DPAdd copies the specified INF file to the %windir%/Inf directory and
 // renames it OEM*.inf. This file name is unique on the computer, and you cannot
 // specify it.
 //
-// If this INF file already exists in `%windir%/Inf` (as determined by comparing
+// If this INF file already exists in %windir%/Inf (as determined by comparing
 // the binary files, not by matching the file names) and the catalog (.cat) file
 // for the INF is identical to a catalog file in the directory, the INF file is
-// not recopied to the `%windir%/Inf` directory.
+// not recopied to the %windir%/Inf directory.
 //
-// This command calls the `SetupCopyOEMInf` function with no `CopyStyle` flags.
-// `SetupCopyOEMInf` is described in the Microsoft Windows SDK documentation.
+// Cannot be run with the WithRemoteComputer() option.
+//
+// This function may not be available on older versions of Device Console.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-dp-add for more information.
 func (dc *DevCon) DPAdd(infFilePath string) error {
-	lines, err := dc.run(commandDPAdd, infFilePath)
+	_, err := dc.run(commandDPAdd, infFilePath)
 	if err != nil {
 		return err
 	}
-
-	// TODO: Parse.
-	dc.logResults(lines)
 
 	return nil
 }
@@ -43,10 +47,13 @@ func (dc *DevCon) DPAdd(infFilePath string) error {
 // DPEnum returns the third-party (OEM) driver packages in the driver store on
 // the local computer.
 //
-// Notes
-// DPEnum returns the `OEM*.inf` files in the `%windir%/Inf` on the local computer.
+// DPEnum returns the OEM*.inf files in the %windir%/Inf on the local computer.
 // For each file, this command displays the provider, class, date, and version
 // number from the INF file.
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// This function may not be available on older versions of Device Console.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-dp-enum for more information.
 func (dc *DevCon) DPEnum() ([]OEMPackage, error) {
@@ -62,12 +69,16 @@ func (dc *DevCon) DPEnum() ([]OEMPackage, error) {
 // the local computer. This command deletes the INF file, the PNF file, and the
 // associated catalog file (.cat).
 //
-// THe infFileName represents the OEM*.inf file name of the INF file. Windows
+// The infFileName represents the OEM*.inf file name of the INF file. Windows
 // assigns a file name with this format to the INF file when you add the driver
 // package to the driver store, such as by using DPAdd().
 //
 // Specifying true for force deletes the driver package even if a device is
 // using it at the time.
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// This function may not be available on older versions of Device Console.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-dp-delete for more information.
 func (dc *DevCon) DPDelete(infFileName string, force bool) error {
@@ -83,13 +94,29 @@ func (dc *DevCon) DPDelete(infFileName string, force bool) error {
 		return err
 	}
 
-	// TODO: Parse.
-	dc.logResults(lines)
+	// If the command failed, the output looks like this.
+	//	Deleting the specified Driver Package from the machine failed.
+	//	devcon failed.
+	//
+	// We return the first line as the error message.
+	errorLineIndex := substrInLines(lines, "machine failed")
+	if errorLineIndex != -1 {
+		return errors.New(lines[errorLineIndex])
+	}
 
 	return nil
 }
 
+// parseOEMPackages loops through the specified lines and returns a slice of
+// OEMPackage records.
 func parseOEMPackages(lines []string) []OEMPackage {
+	if len(lines) == 0 {
+		return nil
+	}
+
+	// The first line of the output is always:
+	//	The following 3rd party Driver Packages are on this machine:
+	// We don't want this included, so we remove it.
 	lines = lines[1:]
 
 	oemPackages := make([]OEMPackage, 0)
