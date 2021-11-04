@@ -125,8 +125,7 @@ func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 	dc.RemotePath = ""
 
 	if dc.ExeFilePath == "" {
-		return readTestDataFile(command)
-		// return nil, errors.New("invalid devcon.exe path specified")
+		return nil, errors.New("invalid devcon.exe path specified")
 	}
 
 	if _, err := os.Stat(dc.ExeFilePath); os.IsNotExist(err) {
@@ -173,17 +172,4 @@ func (dc *DevCon) logResults(lines []string) {
 	for _, line := range lines {
 		fmt.Println(line)
 	}
-}
-
-func readTestDataFile(command command) ([]string, error) {
-	fileName := fmt.Sprintf("%s.txt", command.String())
-
-	path := filepath.Join("testdata", fileName)
-
-	bytes, err := ioutil.ReadFile(path)
-	if err != nil {
-		return nil, fmt.Errorf("error reading test data file: %w", err)
-	}
-
-	return splitLines(string(bytes)), nil
 }
