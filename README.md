@@ -1,5 +1,7 @@
 # go-devcon
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/mikerourke/go-devcon.svg)](https://pkg.go.dev/github.com/mikerourke/go-devcon)
+
 Go wrapper around the [Windows Device Console](https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon) (`devcon.exe`).
 
 ```
