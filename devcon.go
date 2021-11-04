@@ -39,9 +39,9 @@ func New(exeFilePath string) *DevCon {
 	}
 }
 
-// WithConditionalReboot should be set on the DevCon instance if the computer should
-// be rebooted after running the command. If specified for a command that doesn't
-// allow a conditional reboot, the command will not be run.
+// WithConditionalReboot should be set on the DevCon instance if the computer
+// should be rebooted after running the command. If specified for a command that
+// doesn't allow a conditional reboot, the command will not be run.
 //
 // Note that the computer will only be rebooted if a reboot is required.
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
@@ -64,7 +64,8 @@ func (dc *DevCon) WithConditionalReboot() *DevCon {
 // To call a method for a remote computer, the Group Policy setting must allow
 // the Plug and Play service to run on the remote computer. On computers that
 // run Windows Vista and Windows 7, the Group Policy disables remote access to
-// the service by default. On computers that run WDK 8.1 and WDK 8, the remote access is unavailable.
+// the service by default. On computers that run WDK 8.1 and WDK 8, the remote
+// access is unavailable.
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
 //
