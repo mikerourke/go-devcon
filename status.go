@@ -44,10 +44,6 @@ func (dc *DevCon) Status() ([]DriverStatus, error) {
 		return nil, err
 	}
 
-	return parseStatus(lines), nil
-}
-
-func parseStatus(lines []string) []DriverStatus {
 	groupIndices := make([]int, 0)
 
 	for index, line := range lines {
@@ -68,7 +64,13 @@ func parseStatus(lines []string) []DriverStatus {
 
 		groupEnd := groupIndices[nextIndex]
 
-		status := DriverStatus{}
+		status := DriverStatus{
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
+			Status: "",
+		}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			line := lines[lineIndex]
@@ -108,5 +110,5 @@ func parseStatus(lines []string) []DriverStatus {
 		}
 	}
 
-	return statuses
+	return statuses, nil
 }

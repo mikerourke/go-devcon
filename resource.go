@@ -39,10 +39,6 @@ func (dc *DevCon) Resources() ([]DeviceResourceUsage, error) {
 		return nil, err
 	}
 
-	return parseResources(lines), nil
-}
-
-func parseResources(lines []string) []DeviceResourceUsage {
 	groupIndices := make([]int, 0)
 
 	for index, line := range lines {
@@ -64,7 +60,10 @@ func parseResources(lines []string) []DeviceResourceUsage {
 		groupEnd := groupIndices[nextIndex]
 
 		resourceUsage := DeviceResourceUsage{
-			Device:    Device{},
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
 			Resources: make([]Resource, 0),
 		}
 
@@ -85,7 +84,10 @@ func parseResources(lines []string) []DeviceResourceUsage {
 			default:
 				params := parseParams(reResource, line)
 
-				resource := Resource{}
+				resource := Resource{
+					Name:  "",
+					Value: "",
+				}
 				if name, ok := params["Name"]; ok {
 					resource.Name = trimSpaces(name)
 				}
@@ -105,5 +107,5 @@ func parseResources(lines []string) []DeviceResourceUsage {
 		}
 	}
 
-	return resourceUsages
+	return resourceUsages, nil
 }

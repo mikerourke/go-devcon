@@ -2,6 +2,7 @@ package devcon
 
 type command string
 
+//goland:noinspection SpellCheckingInspection
 const (
 	// These commands represent queries, they don't make any changes to the
 	// system.
@@ -41,6 +42,7 @@ func (c command) String() string {
 
 // CanReboot returns true if the associated command allows for conditional
 // reboot.
+//
 //nolint:exhaustive // Any commands not specified are false.
 func (c command) CanReboot() bool {
 	switch c {
@@ -63,6 +65,7 @@ func (c command) CanReboot() bool {
 
 // CanBeRemote returns true if the associated command can target a remote
 // computer.
+//
 //nolint:exhaustive // Any commands not specified are false.
 func (c command) CanBeRemote() bool {
 	switch c {

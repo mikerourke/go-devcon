@@ -52,11 +52,6 @@ func (dc *DevCon) Stack() ([]DriverStack, error) {
 		return nil, err
 	}
 
-	return parseStacks(lines), nil
-}
-
-//nolint:funlen // This function is long, but it's relatively simple.
-func parseStacks(lines []string) []DriverStack {
 	type searchStatus int
 
 	const (
@@ -87,7 +82,15 @@ func parseStacks(lines []string) []DriverStack {
 		groupEnd := groupIndices[nextIndex]
 
 		stack := DriverStack{
-			Device: Device{},
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
+			SetupClassGUID:     "",
+			SetupClassName:     "",
+			ControllingService: "",
+			UpperFilters:       "",
+			LowerFilters:       "",
 		}
 
 		search := None
@@ -127,16 +130,21 @@ func parseStacks(lines []string) []DriverStack {
 				search = LowerFilter
 
 			default:
-				switch search {
-				case UpperFilter:
-					stack.UpperFilters = line
+				search = None
+			}
 
-				case Service:
-					stack.ControllingService = line
+			//goland:noinspection GoDfaConstantCondition
+			switch search {
+			case UpperFilter:
+				stack.UpperFilters = line
 
-				case LowerFilter:
-					stack.LowerFilters = line
-				}
+			case Service:
+				stack.ControllingService = line
+
+			case LowerFilter:
+				stack.LowerFilters = line
+
+			case None: // Do nothing
 			}
 		}
 
@@ -145,5 +153,5 @@ func parseStacks(lines []string) []DriverStack {
 		}
 	}
 
-	return stacks
+	return stacks, nil
 }

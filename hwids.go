@@ -34,45 +34,6 @@ func (dc *DevCon) HwIDs(idsOrClasses ...string) ([]HwID, error) {
 		return nil, err
 	}
 
-	return parseHwIDs(lines), nil
-}
-
-// SetHwID adds, deletes, and changes the order of hardware IDs of root-enumerated
-// devices.
-//
-// A root-enumerated device is a device that appears in the ROOT registry
-// subkey (HKEY_LOCAL_MACHINE\System\ControlSet\Enum\ROOT).
-//
-// You can specify multiple hardware IDs in each command. The ! (delete) parameter
-// applies only to the hardware ID that it prefixes. The other symbol parameters
-// apply to all hardware IDs that follow until the next symbol parameter in the
-// command.
-//
-// SetHwID moves, rather than adds, a hardware ID if the specified hardware ID
-// already exists in the list of hardware IDs for the device.
-//
-// Running with the WithRemoteComputer() option is allowed.
-//
-// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-sethwid for more information.
-func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
-	args := idsOrClasses
-	args = append(args, ":=")
-	args = append(args, hardwareIds...)
-
-	lines, err := dc.run(commandSetHwID, args...)
-	if err != nil {
-		return err
-	}
-
-	// TODO: Parse lines.
-	dc.logResults(lines)
-
-	return nil
-}
-
-// parseHwIDs loops through the specified output lines and returns a slice of
-// HwID instances.
-func parseHwIDs(lines []string) []HwID {
 	type searchStatus int
 
 	const (
@@ -102,6 +63,10 @@ func parseHwIDs(lines []string) []HwID {
 		groupEnd := groupIndices[nextIndex]
 
 		hwid := HwID{
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
 			HardwareIDs:   make([]string, 0),
 			CompatibleIDs: make([]string, 0),
 		}
@@ -145,5 +110,38 @@ func parseHwIDs(lines []string) []HwID {
 		}
 	}
 
-	return hwids
+	return hwids, nil
+}
+
+// SetHwID adds, deletes, and changes the order of hardware IDs of root-enumerated
+// devices.
+//
+// A root-enumerated device is a device that appears in the ROOT registry
+// subkey (HKEY_LOCAL_MACHINE\System\ControlSet\Enum\ROOT).
+//
+// You can specify multiple hardware IDs in each command. The ! (delete) parameter
+// applies only to the hardware ID that it prefixes. The other symbol parameters
+// apply to all hardware IDs that follow until the next symbol parameter in the
+// command.
+//
+// SetHwID moves, rather than adds, a hardware ID if the specified hardware ID
+// already exists in the list of hardware IDs for the device.
+//
+// Running with the WithRemoteComputer() option is allowed.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-sethwid for more information.
+func (dc *DevCon) SetHwID(idsOrClasses []string, hardwareIds []string) error {
+	args := idsOrClasses
+	args = append(args, ":=")
+	args = append(args, hardwareIds...)
+
+	lines, err := dc.run(commandSetHwID, args...)
+	if err != nil {
+		return err
+	}
+
+	// TODO: Parse lines.
+	dc.logResults(lines)
+
+	return nil
 }

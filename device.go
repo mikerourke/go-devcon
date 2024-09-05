@@ -39,12 +39,16 @@ type DeviceRestartStatus struct {
 //
 // Before using an ID pattern to disable a device, determine which devices will
 // be affected. To do so, pass the pattern to the Status() function:
+//
 //	dc.Status("USB\*")
+//
 // Or with the HwIDs() function:
+//
 //	dc.HwIDs("USB\*")
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Disable()
 //
 // Cannot be run with the WithRemoteComputer() option.
@@ -73,6 +77,7 @@ func (dc *DevCon) Disable(idOrClass string, idsOrClasses ...string) error {
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Enable()
 //
 // Cannot be run with the WithRemoteComputer() option.
@@ -181,6 +186,7 @@ func (dc *DevCon) FindAll(idOrClass string, idsOrClasses ...string) ([]Device, e
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Install()
 //
 // Cannot be run with the WithRemoteComputer() option.
@@ -210,6 +216,7 @@ func (dc *DevCon) Install(infFilePath string, hardwareID string) error {
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Remove()
 //
 // Cannot be run with the WithRemoteComputer() option.
@@ -240,6 +247,7 @@ func (dc *DevCon) Remove(idsOrClasses ...string) error {
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Rescan()
 //
 // Running with the WithRemoteComputer() option is allowed.
@@ -262,6 +270,7 @@ func (dc *DevCon) Rescan() error {
 //
 // The system might need to be rebooted to make this change effective. To reboot
 // the system if required, use:
+//
 //	dc.WithConditionalReboot().Restart()
 //
 // Cannot be run with the WithRemoteComputer() option.

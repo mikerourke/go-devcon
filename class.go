@@ -108,13 +108,11 @@ func (dc *DevCon) ClassFilter(
 		return nil, err
 	}
 
-	return parseClassFilter(lines), nil
-}
-
-// parseClassFilter loops through the specified lines and returns a pointer to
-// a ClassFilterChangeResult record.
-func parseClassFilter(lines []string) *ClassFilterChangeResult {
-	changeResult := &ClassFilterChangeResult{}
+	changeResult := &ClassFilterChangeResult{
+		Filters:        nil,
+		RequiresReboot: false,
+		WasChanged:     false,
+	}
 
 	for _, line := range lines {
 		if !strings.HasPrefix(line, " ") {
@@ -125,7 +123,7 @@ func parseClassFilter(lines []string) *ClassFilterChangeResult {
 		}
 	}
 
-	return changeResult
+	return changeResult, nil
 }
 
 // ListClass returns all devices in the specified device setup classes in a
@@ -148,18 +146,11 @@ func (dc *DevCon) ListClass(classes ...string) (map[string][]Device, error) {
 		return nil, err
 	}
 
-	return parseListClass(lines), nil
-}
-
-// parseListClass loops through the specified lines and returns a map with
-// the key = the name of the class and value = slice of devices associated
-// with the class.
-func parseListClass(lines []string) map[string][]Device {
-	if len(lines) == 0 {
-		return nil
-	}
-
 	devicesByClassMap := make(map[string][]Device)
+
+	if len(lines) == 0 {
+		return devicesByClassMap, nil
+	}
 
 	groupIndices := make([]int, 0)
 
@@ -208,5 +199,5 @@ func parseListClass(lines []string) map[string][]Device {
 		}
 	}
 
-	return devicesByClassMap
+	return devicesByClassMap, nil
 }

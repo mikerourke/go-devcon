@@ -7,6 +7,7 @@ import (
 	"github.com/mikerourke/go-devcon"
 )
 
+//nolint:testableexamples // No need to test.
 func Example_install() {
 	dc := devcon.New(`C:\windows\devcon.exe`)
 
@@ -22,6 +23,7 @@ func Example_install() {
 	for _, dev := range devs {
 		if strings.Contains(dev.Name, "PRO") {
 			matchingDev = dev
+
 			break
 		}
 	}
@@ -32,7 +34,6 @@ func Example_install() {
 			fmt.Printf("error installing: %s", err)
 		} else {
 			fmt.Println("Successfully installed")
-
 		}
 	}
 }

@@ -23,6 +23,7 @@ func main() {
 
 // marshalUnescapedJSON returns the JSON representation of the specified interface
 // without HTML escaped.
+//
 //nolint:deadcode,unused // This is for testing purposes.
 func marshalUnescapedJSON(t interface{}) ([]byte, error) {
 	buffer := &bytes.Buffer{}

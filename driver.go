@@ -106,99 +106,6 @@ func (dc *DevCon) DriverFiles(idOrClass string, idsOrClasses ...string) ([]Drive
 		return nil, err
 	}
 
-	return parseDriverFileGroups(lines), nil
-}
-
-// DriverNodes returns all driver packages that are compatible with the device,
-// along with their version and ranking.
-//
-// The DriverNodes method is particularly useful for troubleshooting setup
-// problems. For example, you can use it to determine whether a Windows INF
-// file or a customized third-party INF file was used for a device.
-//
-// Cannot be run with the WithRemoteComputer() option.
-//
-// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-drivernodes for more information.
-func (dc *DevCon) DriverNodes(idOrClass string, idsOrClasses ...string) ([]DriverNodeGroup, error) {
-	allIdsOrClasses := concatIdsOrClasses(idOrClass, idsOrClasses...)
-
-	lines, err := dc.run(commandDriverNodes, allIdsOrClasses...)
-	if err != nil {
-		return nil, err
-	}
-
-	return parseDriverNodeGroups(lines), nil
-}
-
-// Update forcibly replaces the current device drivers for a specified device
-// with drivers listed in the specified INF file.
-//
-// Update forces an update to the most appropriate drivers in the specified INF
-// file, even if those drivers are older or less appropriate than the current drivers
-// or the drivers in a different INF file.
-//
-// You cannot use Update to update drivers for non-present devices.
-//
-// Before updating the driver for any device, determine which devices will
-// be affected. To do so, pass the name to the HwIDs() function:
-//	dc.HwIDs("ISAPNP\CSC4324\0")
-// Or with the DriverFiles() function:
-//	dc.DriverFiles("ISAPNP\CSC4324\0")
-//
-// The system might need to be rebooted to make this change effective. To reboot
-// the system if required, use:
-//	dc.WithConditionalReboot().Update()
-//
-// Cannot be run with the WithRemoteComputer() option.
-//
-// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-update for more information.
-func (dc *DevCon) Update(infFile string, hardwareID string) error {
-	lines, err := dc.run(commandUpdate, infFile, hardwareID)
-
-	if substrInLines(lines, "success") == -1 {
-		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
-	}
-
-	return err
-}
-
-// UpdateNI forcibly replaces the current device drivers with drivers listed in
-// the specified INF file without prompting the user for information or
-// confirmation.
-//
-// This method suppresses all user prompts that require a response and assumes
-// the default response. As a result, you cannot use this operation to install
-// unsigned drivers. To display user prompts during an update, use Update().
-//
-// This method forces an update, even if the drivers in the specified INF file
-// are older or less appropriate than the current drivers.
-//
-// Before updating the driver for any device, determine which devices will
-// be affected. To do so, pass the name to the HwIDs() function:
-//	dc.HwIDs("ISAPNP\CSC4324\0")
-// Or with the DriverFiles() function:
-//	dc.DriverFiles("ISAPNP\CSC4324\0")
-//
-// The system might need to be rebooted to make this change effective. To reboot
-// the system if required, use:
-//	dc.WithConditionalReboot().UpdateNI()
-//
-// Cannot be run with the WithRemoteComputer() option.
-//
-// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-updateni for more information.
-func (dc *DevCon) UpdateNI(infFile string, hardwareID string) error {
-	lines, err := dc.run(commandUpdateNI, infFile, hardwareID)
-
-	if substrInLines(lines, "success") == -1 {
-		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
-	}
-
-	return err
-}
-
-// parseDriverFileGroups loops through the specified lines and returns a slice
-// of DriverFileGroup records.
-func parseDriverFileGroups(lines []string) []DriverFileGroup {
 	groupIndices := make([]int, 0)
 
 	for index, line := range lines {
@@ -220,7 +127,13 @@ func parseDriverFileGroups(lines []string) []DriverFileGroup {
 		groupEnd := groupIndices[nextIndex]
 
 		fileGroup := DriverFileGroup{
-			Files: make([]string, 0),
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
+			INFFile:    "",
+			INFSection: "",
+			Files:      make([]string, 0),
 		}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
@@ -262,13 +175,29 @@ func parseDriverFileGroups(lines []string) []DriverFileGroup {
 		}
 	}
 
-	return fileGroups
+	return fileGroups, nil
 }
 
-// parseDriverNodeGroups loops through the specified lines and returns a slice
-// of DriverNodeGroup records.
-//nolint:funlen // This function is long, but it's relatively simple.
-func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
+// DriverNodes returns all driver packages that are compatible with the device,
+// along with their version and ranking.
+//
+// The DriverNodes method is particularly useful for troubleshooting setup
+// problems. For example, you can use it to determine whether a Windows INF
+// file or a customized third-party INF file was used for a device.
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-drivernodes for more information.
+//
+//nolint:funlen // Function is long, but simple.
+func (dc *DevCon) DriverNodes(idOrClass string, idsOrClasses ...string) ([]DriverNodeGroup, error) {
+	allIdsOrClasses := concatIdsOrClasses(idOrClass, idsOrClasses...)
+
+	lines, err := dc.run(commandDriverNodes, allIdsOrClasses...)
+	if err != nil {
+		return nil, err
+	}
+
 	groupIndices := make([]int, 0)
 
 	for index, line := range lines {
@@ -290,9 +219,25 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 		groupEnd := groupIndices[nextIndex]
 
 		nodeGroup := DriverNodeGroup{
+			Device: Device{
+				ID:   "",
+				Name: "",
+			},
 			Nodes: make([]DriverNode, 0),
 		}
-		node := DriverNode{}
+		node := DriverNode{
+			NodeNumber:        0,
+			INFFile:           "",
+			INFSection:        "",
+			Description:       "",
+			Manufacturer:      "",
+			Provider:          "",
+			Date:              "",
+			Version:           "",
+			NodeRank:          0,
+			NodeFlags:         0,
+			IsDigitallySigned: false,
+		}
 
 		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
 			line := lines[lineIndex]
@@ -359,7 +304,19 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 						node.IsDigitallySigned = true
 						nodeGroup.Nodes = append(nodeGroup.Nodes, node)
 
-						node = DriverNode{}
+						node = DriverNode{
+							NodeNumber:        0,
+							INFFile:           "",
+							INFSection:        "",
+							Description:       "",
+							Manufacturer:      "",
+							Provider:          "",
+							Date:              "",
+							Version:           "",
+							NodeRank:          0,
+							NodeFlags:         0,
+							IsDigitallySigned: false,
+						}
 					}
 				}
 
@@ -376,5 +333,79 @@ func parseDriverNodeGroups(lines []string) []DriverNodeGroup {
 		}
 	}
 
-	return nodeGroups
+	return nodeGroups, nil
+}
+
+// Update forcibly replaces the current device drivers for a specified device
+// with drivers listed in the specified INF file.
+//
+// Update forces an update to the most appropriate drivers in the specified INF
+// file, even if those drivers are older or less appropriate than the current drivers
+// or the drivers in a different INF file.
+//
+// You cannot use Update to update drivers for non-present devices.
+//
+// Before updating the driver for any device, determine which devices will
+// be affected. To do so, pass the name to the HwIDs() function:
+//
+//	dc.HwIDs("ISAPNP\CSC4324\0")
+//
+// Or with the DriverFiles() function:
+//
+//	dc.DriverFiles("ISAPNP\CSC4324\0")
+//
+// The system might need to be rebooted to make this change effective. To reboot
+// the system if required, use:
+//
+//	dc.WithConditionalReboot().Update()
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-update for more information.
+func (dc *DevCon) Update(infFile string, hardwareID string) error {
+	lines, err := dc.run(commandUpdate, infFile, hardwareID)
+
+	if substrInLines(lines, "success") == -1 {
+		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
+	}
+
+	return err
+}
+
+// UpdateNI forcibly replaces the current device drivers with drivers listed in
+// the specified INF file without prompting the user for information or
+// confirmation.
+//
+// This method suppresses all user prompts that require a response and assumes
+// the default response. As a result, you cannot use this operation to install
+// unsigned drivers. To display user prompts during an update, use Update().
+//
+// This method forces an update, even if the drivers in the specified INF file
+// are older or less appropriate than the current drivers.
+//
+// Before updating the driver for any device, determine which devices will
+// be affected. To do so, pass the name to the HwIDs() function:
+//
+//	dc.HwIDs("ISAPNP\CSC4324\0")
+//
+// Or with the DriverFiles() function:
+//
+//	dc.DriverFiles("ISAPNP\CSC4324\0")
+//
+// The system might need to be rebooted to make this change effective. To reboot
+// the system if required, use:
+//
+//	dc.WithConditionalReboot().UpdateNI()
+//
+// Cannot be run with the WithRemoteComputer() option.
+//
+// See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-updateni for more information.
+func (dc *DevCon) UpdateNI(infFile string, hardwareID string) error {
+	lines, err := dc.run(commandUpdateNI, infFile, hardwareID)
+
+	if substrInLines(lines, "success") == -1 {
+		return fmt.Errorf("error updating driver: %s", strings.Join(lines, ". "))
+	}
+
+	return err
 }

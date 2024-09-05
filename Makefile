@@ -13,7 +13,6 @@ format:
 	gofmt -w .
 
 lint:
-	golint .
 	golangci-lint run
 
 vet:

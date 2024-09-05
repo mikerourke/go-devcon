@@ -36,6 +36,8 @@ type DevCon struct {
 func New(exeFilePath string) *DevCon {
 	return &DevCon{
 		ExeFilePath: exeFilePath,
+		IsRebooted:  false,
+		RemotePath:  "",
 	}
 }
 
@@ -46,7 +48,7 @@ func New(exeFilePath string) *DevCon {
 // Note that the computer will only be rebooted if a reboot is required.
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
 //
-// Usage
+// # Usage
 //
 // Add to the DevCon instance before the command.
 //
@@ -69,7 +71,7 @@ func (dc *DevCon) WithConditionalReboot() *DevCon {
 //
 // See https://docs.microsoft.com/en-us/windows-hardware/drivers/devtest/devcon-general-commands for more information.
 //
-// Usage
+// # Usage
 //
 // Add to the DevCon instance before the command.
 //
@@ -101,7 +103,7 @@ func (dc *DevCon) run(command command, args ...string) ([]string, error) {
 			return nil, errors.New("the remote computer name must have leading backslashes")
 		}
 
-		allArgs = append(allArgs, fmt.Sprintf(`/m:%s`, dc.RemotePath))
+		allArgs = append(allArgs, `/m:`+dc.RemotePath)
 	}
 
 	if dc.IsRebooted {

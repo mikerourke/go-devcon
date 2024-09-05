@@ -62,7 +62,61 @@ func (dc *DevCon) DPEnum() ([]OEMPackage, error) {
 		return nil, err
 	}
 
-	return parseOEMPackages(lines), nil
+	oemPackages := make([]OEMPackage, 0)
+
+	if len(lines) == 0 {
+		return oemPackages, nil
+	}
+
+	// The first line of the output is always:
+	//	The following 3rd party Driver Packages are on this machine:
+	// We don't want this included, so we remove it.
+	lines = lines[1:]
+
+	groupIndices := make([]int, 0)
+
+	for index, line := range lines {
+		if !strings.HasPrefix(line, " ") {
+			groupIndices = append(groupIndices, index)
+		}
+	}
+
+	groupIndices = append(groupIndices, len(lines))
+
+	for index, groupStart := range groupIndices {
+		nextIndex := index + 1
+		if len(groupIndices) == nextIndex {
+			break
+		}
+
+		groupEnd := groupIndices[nextIndex]
+
+		oemPackage := OEMPackage{
+			Name:     "",
+			Provider: "",
+			Class:    "",
+		}
+
+		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
+			line := lines[lineIndex]
+
+			if lineIndex == groupStart {
+				oemPackage.Name = line
+			} else {
+				valuePair := parseColonSeparatedLine(line)
+
+				if valuePair[0] == "Provider" {
+					oemPackage.Provider = valuePair[1]
+				} else if valuePair[0] == "Class" {
+					oemPackage.Class = valuePair[1]
+				}
+			}
+		}
+
+		oemPackages = append(oemPackages, oemPackage)
+	}
+
+	return oemPackages, nil
 }
 
 // DPDelete deletes a third-party (OEM) driver package from the driver store on
@@ -105,60 +159,4 @@ func (dc *DevCon) DPDelete(infFileName string, force bool) error {
 	}
 
 	return nil
-}
-
-// parseOEMPackages loops through the specified lines and returns a slice of
-// OEMPackage records.
-func parseOEMPackages(lines []string) []OEMPackage {
-	if len(lines) == 0 {
-		return nil
-	}
-
-	// The first line of the output is always:
-	//	The following 3rd party Driver Packages are on this machine:
-	// We don't want this included, so we remove it.
-	lines = lines[1:]
-
-	oemPackages := make([]OEMPackage, 0)
-
-	groupIndices := make([]int, 0)
-
-	for index, line := range lines {
-		if !strings.HasPrefix(line, " ") {
-			groupIndices = append(groupIndices, index)
-		}
-	}
-
-	groupIndices = append(groupIndices, len(lines))
-
-	for index, groupStart := range groupIndices {
-		nextIndex := index + 1
-		if len(groupIndices) == nextIndex {
-			break
-		}
-
-		groupEnd := groupIndices[nextIndex]
-
-		oemPackage := OEMPackage{}
-
-		for lineIndex := groupStart; lineIndex < groupEnd; lineIndex++ {
-			line := lines[lineIndex]
-
-			if lineIndex == groupStart {
-				oemPackage.Name = line
-			} else {
-				valuePair := parseColonSeparatedLine(line)
-
-				if valuePair[0] == "Provider" {
-					oemPackage.Provider = valuePair[1]
-				} else if valuePair[0] == "Class" {
-					oemPackage.Class = valuePair[1]
-				}
-			}
-		}
-
-		oemPackages = append(oemPackages, oemPackage)
-	}
-
-	return oemPackages
 }
